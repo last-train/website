@@ -3,7 +3,7 @@ require("dotenv").config()
 module.exports = {
   siteMetadata: {
     title: `The Last Train Podcast`,
-    description: `A conversational podcast through the perspective of the young adult hosts. The theme behind the podcast is the type of conversation you would have at the end of the day, on the last train home – sincere, honest, candid.`,
+    description: `A conversational podcast featuring the type of conversations you would have at the end of the day, on the last train home – sincere, honest, candid.`,
     author: `DT & Tolu Akindele`,
     siteUrl: `https://thelasttrain.fm`,
   },

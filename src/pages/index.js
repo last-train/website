@@ -11,12 +11,12 @@ import Newsletter from "../components/newsletter"
 
 const IndexPage = () => (
   <Layout>
-    <Newsletter />
-    <SEO title="require('podcast');" />
+    {/* <Newsletter /> */}
+    <SEO title="The Last Train Podcast" />
     <Landing />
     <Podcast />
     <Hosts />
-    <PodcastApp />
+    {/* <PodcastApp /> */}
   </Layout>
 )
 

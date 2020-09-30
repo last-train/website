@@ -93,7 +93,7 @@ const List = () => {
 
   return (
     <Wrapper>
-      <Heading>Odcinki</Heading>
+      <Heading>Episodes</Heading>
       <ListContainer>
         {episodes
           .map((episode) => (

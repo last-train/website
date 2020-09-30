@@ -67,8 +67,7 @@ const Links = styled.div`
 const Footer = () => (
   <Container>
     <Links>
-      <Link href="https://letter.podcast.gq">Newsletter</Link>
-      <Link href="https://www.youtube.com/channel/UCec_mTVjUKQAsSilMJ3J1TQ">
+      {/* <Link href="https://www.youtube.com/channel/UCec_mTVjUKQAsSilMJ3J1TQ">
         YouTube
       </Link>
       <Link href="https://open.spotify.com/show/55IXMbPmncm67FA5ZAydtL">
@@ -82,16 +81,13 @@ const Footer = () => (
       </Link>
       <Link href="https://anchor.fm/s/139df89c/podcast/rss">RSS</Link>
       <Link href="https://anchor.fm/require">Anchor</Link>
-      <Link href="https://require.podcast.gq/discord">Discord</Link>
       <Link href="https://twitter.com/requirepodcast">Twitter</Link>
-      <Link href="https://www.instagram.com/requirepodcast">Instagram</Link>
-      <Link href="https://github.com/requirepodcast">GitHub</Link>
-      <Link href="https://www.reddit.com/r/requirepodcast">Reddit</Link>
+      <Link href="https://www.instagram.com/requirepodcast">Instagram</Link> */}
     </Links>
     <Text>
       Copyright © {new Date().getFullYear()} The Last Train Podcast
       <br />
-      Kontakt: require@podcast.gq
+      <Link href="mailto:hello@thelasttrain.fm">hello@thelasttrain.fm</Link>
     </Text>
   </Container>
 )

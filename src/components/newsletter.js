@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 const Wrapper = styled.a`
-  display: block;
+  display: none;
   text-decoration: none;
   position: fixed;
   bottom: 20px;

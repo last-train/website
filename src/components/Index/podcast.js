@@ -77,11 +77,11 @@ const Podcast = () => {
 
   return (
     <Container ref={wrapperRef}>
-      <Heading>Posłuchaj</Heading>
+      <Heading>Podcasts</Heading>
       <IndexPagePlayer ref={playerRef} />
       <H3>
-        Więcej odcinków, timestampy, linki i dodatkowe informacje w{" "}
-        <a href="/archive">archiwum</a>
+        More episodes, timestamps, links and additional information in{" "}
+        <a href="/archive">archive</a>
       </H3>
     </Container>
   )

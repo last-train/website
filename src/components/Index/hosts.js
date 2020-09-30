@@ -29,13 +29,6 @@ const Wrapper = styled.div`
 const Person = styled.div`
   display: inline-block;
   padding: 3em;
-  &:last-child {
-    border-left: 1px solid #ffffff33;
-    @media (max-width: 550px) {
-      border-left: none;
-      border-top: 1px solid #ffffff33;
-    }
-  }
 `
 
 const Avatar = styled(Img)`
@@ -127,17 +120,29 @@ const Hosts = () => {
 
   return (
     <Container ref={wrapperRef}>
-      <Heading>Prowadzący</Heading>
+      <Heading>Hosts</Heading>
       <Wrapper ref={hostsRef}>
         <Person>
           <Avatar fixed={data.artur.childImageSharp.fixed} />
-          <Name>Artur Dudek</Name>
+          <Name>Tobi</Name>
           <Link href="mailto:artur@dudek.ga">artur@dudek.ga</Link>
           <Link href="https://twitter.com/arturdudek_">@arturdudek_</Link>
         </Person>
         <Person>
           <Avatar fixed={data.adam.childImageSharp.fixed} />
-          <Name>Adam Siekierski</Name>
+          <Name>Iyanu</Name>
+          <Link href="mailto:a@siekierski.ml">a@siekierski.ml</Link>
+          <Link href="https://twitter.com/a_siekierski">@a_siekierski</Link>
+        </Person>
+        <Person>
+          <Avatar fixed={data.artur.childImageSharp.fixed} />
+          <Name>DT</Name>
+          <Link href="mailto:artur@dudek.ga">artur@dudek.ga</Link>
+          <Link href="https://twitter.com/arturdudek_">@arturdudek_</Link>
+        </Person>
+        <Person>
+          <Avatar fixed={data.adam.childImageSharp.fixed} />
+          <Name>Julianna</Name>
           <Link href="mailto:a@siekierski.ml">a@siekierski.ml</Link>
           <Link href="https://twitter.com/a_siekierski">@a_siekierski</Link>
         </Person>
