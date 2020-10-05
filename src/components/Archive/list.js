@@ -28,7 +28,7 @@ const Heading = styled.h1`
   width: 100%;
 
   &::after {
-    border-top: 2px solid #fff;
+    border-top: 2px solid #000;
     display: block;
     width: 33.3%;
     content: "";

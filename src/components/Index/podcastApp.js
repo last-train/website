@@ -19,7 +19,7 @@ const Heading = styled.h1`
   }
 
   &::after {
-    border-top: 2px solid #fff;
+    border-top: 2px solid #000;
     display: block;
     width: 33.3%;
     content: "";
@@ -28,7 +28,7 @@ const Heading = styled.h1`
 `
 
 const Container = styled.div`
-  background-color: #0f111a;
+  background-color: #ffffff;
   min-height: 100vh;
   padding: 20px;
   display: flex;

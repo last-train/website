@@ -46,7 +46,7 @@ module.exports = {
         name: `The Last Train Podcast`,
         short_name: `Last Train`,
         start_url: `/`,
-        background_color: `#0f111a`,
+        background_color: `#ffffff`,
         theme_color: `#FF5370`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`,
