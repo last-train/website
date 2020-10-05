@@ -43,8 +43,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `require('podcast');`,
-        short_name: `The Last Train Podcast`,
+        name: `The Last Train Podcast`,
+        short_name: `Last Train`,
         start_url: `/`,
         background_color: `#0f111a`,
         theme_color: `#FF5370`,
