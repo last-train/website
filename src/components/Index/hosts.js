@@ -45,7 +45,7 @@ const Name = styled.h2`
 `
 
 const Link = styled.a`
-  color: #ff5370;
+  color: #feb80a;
   font-size: 0.75em;
   font-weight: 400;
   text-align: center;
@@ -56,7 +56,7 @@ const Link = styled.a`
 
 const Heading = styled.h1`
   margin: 0 0 0.25em 0;
-  color: #ff5370;
+  color: #feb80a;
   font-size: 4em;
   font-weight: 800;
   @media (max-width: 750px) {

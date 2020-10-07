@@ -21,7 +21,7 @@ const Wrapper = styled.aside`
 
 const Heading = styled.h1`
   margin: 0.5em 0;
-  color: #ff5370;
+  color: #feb80a;
   font-size: 2.5em;
   font-weight: 800;
   display: inline-block;
@@ -38,7 +38,7 @@ const Heading = styled.h1`
 
 const ListItem = styled.div`
   padding: 10px;
-  border-bottom: 2px solid #ff5370;
+  border-bottom: 2px solid #feb80a;
 
   &:last-of-type {
     border-bottom: none;

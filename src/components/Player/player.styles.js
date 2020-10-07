@@ -106,8 +106,8 @@ export const SliderTime = styled.div`
   height: 100%;
   background: linear-gradient(
     30deg,
-    #ff5370 0%,
-    ${lighten(0.15, "#ff5370")} 100%
+    #feb80a 0%,
+    ${lighten(0.15, "#feb80a")} 100%
   );
   transition: width 0.1s ease-in-out;
   min-width: 10px;

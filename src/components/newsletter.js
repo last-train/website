@@ -16,7 +16,7 @@ const Wrapper = styled.a`
 
   :hover,
   :focus {
-    box-shadow: 0px 0px 0px 3px #ff5370;
+    box-shadow: 0px 0px 0px 3px #feb80a;
   }
 
   @media (max-width: 700px) {
@@ -25,7 +25,7 @@ const Wrapper = styled.a`
 `
 
 const RedText = styled.span`
-  color: #ff5370;
+  color: #feb80a;
 `
 
 const Newsletter = () => (
