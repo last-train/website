@@ -7,7 +7,7 @@ import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 
 const Container = styled.div`
-  background-color: #ffffff;
+  background-color: #fff;
   min-height: 100vh;
   display: flex;
   align-items: center;

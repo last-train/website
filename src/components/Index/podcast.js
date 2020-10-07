@@ -6,7 +6,7 @@ import { ScrollScene } from "scrollscene"
 import IndexPagePlayer from "./indexPagePlayer"
 
 const Container = styled.div`
-  background-color: #ffffff;
+  background-color: #fff;
   min-height: 100vh;
   display: flex;
   align-items: center;
