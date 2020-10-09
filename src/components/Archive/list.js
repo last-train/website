@@ -9,7 +9,7 @@ const Wrapper = styled.aside`
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background-color: #141621;
+  background-color: #fff;
   padding: 10px;
   text-align: center;
 
@@ -21,14 +21,14 @@ const Wrapper = styled.aside`
 
 const Heading = styled.h1`
   margin: 0.5em 0;
-  color: #feb80a;
+  color: #000000;
   font-size: 2.5em;
   font-weight: 800;
   display: inline-block;
   width: 100%;
 
   &::after {
-    border-top: 2px solid #000;
+    border-top: 2px solid #feb80a;
     display: block;
     width: 33.3%;
     content: "";
@@ -55,8 +55,9 @@ const ItemHeading = styled(Link)`
   display: block;
   cursor: pointer;
   font-size: 1.2em;
+  font-weight: 800;
   text-decoration: none;
-  color: white;
+  color: #000;
   margin: 0;
 
   :hover {
@@ -103,11 +104,13 @@ const List = () => {
               >
                 {episode.childMarkdownRemark.frontmatter.title}
               </ItemHeading>
-              <p style={{ fontSize: "1.2em", color: "#ffffff88", margin: 0 }}>
+              <p style={{ fontWeight: "800", color: "#00000088", margin: 0 }}>
                 {" "}
                 {episode.childMarkdownRemark.frontmatter.publicationDate}
               </p>
-              <p>{episode.childMarkdownRemark.frontmatter.shortDescription}</p>
+              <p style={{ color: "#000000", margin: 0 }}>
+                {episode.childMarkdownRemark.frontmatter.shortDescription}
+              </p>
             </ListItem>
           ))
           .reverse()}

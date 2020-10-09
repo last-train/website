@@ -5,7 +5,7 @@ import { lighten } from "polished"
 export const PlayerWrapper = styled.div`
   width: 100%;
   display: flex;
-  background-color: #1d1f2d;
+  background-color: #000000;
   flex-shrink: 0;
 `
 

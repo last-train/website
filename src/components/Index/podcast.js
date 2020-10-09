@@ -42,7 +42,7 @@ const H3 = styled.h3`
   padding: 0 30px;
 
   a {
-    color: white;
+    color: #000000;
   }
 `
 

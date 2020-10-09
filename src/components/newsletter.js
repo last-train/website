@@ -8,7 +8,7 @@ const Wrapper = styled.a`
   bottom: 20px;
   right: 20px;
   padding: 20px;
-  background-color: #1d1f2d;
+  background-color: #000000;
   color: white;
   z-index: 10;
   transition: 0.3s ease;

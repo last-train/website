@@ -3,7 +3,7 @@ import styled from "styled-components"
 import Player from "../Player/player"
 
 const Wrapper = styled.article`
-  background-color: #181a25;
+  background-color: #feb80a88;
   height: 100%;
   overflow: hidden;
   max-width: 1200px;
@@ -16,7 +16,7 @@ const Wrapper = styled.article`
   }
 
   a {
-    color: white;
+    color: #000;
   }
 
   ul,
@@ -40,7 +40,7 @@ const ContentConatiner = styled.div`
 `
 
 const EpisodeActionButton = styled.a`
-  background-color: #2e2f3e;
+  background-color: #feb80a;
   color: white;
   font-size: 1em;
   font-family: inherit;
@@ -54,8 +54,16 @@ const EpisodeActionButton = styled.a`
   text-decoration: none;
 
   &:hover {
-    background-color: #3f3f4f;
+    background-color: #fff;
   }
+`
+const Heading = styled.h1`
+  margin: 0.5em 0;
+  color: #000000;
+  font-size: 2em;
+  font-weight: 800;
+  display: inline-block;
+  width: 100%;
 `
 
 function getDownloadLink(link) {
@@ -67,26 +75,26 @@ const Episode = ({ episode }) => (
   <Wrapper>
     <Player url={episode.frontmatter.audioUrl} />
     <ContentConatiner>
-      <span style={{ fontSize: "1.2em", color: "#ffffff88" }}>
+      <span style={{ fontWeight: "800", color: "#00000088" }}>
         {episode.frontmatter.publicationDate}
       </span>
-      <h1>{episode.frontmatter.title}</h1>
-      <EpisodeActionButton
+      <Heading>{episode.frontmatter.title}</Heading>
+      {/* <EpisodeActionButton
         href={getDownloadLink(episode.frontmatter.audioUrl)}
         download="download"
       >
-        Pobierz odcinek{" "}
+        Download Episode{" "}
         <span role="img" aria-label="download icon">
           💾
         </span>
       </EpisodeActionButton>
       <EpisodeActionButton href={episode.frontmatter.youtubeUrl}>
-        Odcinek na YouTube{" "}
+        Watch On YouTube{" "}
         <span role="img" aria-label="download icon">
           📺
         </span>
-      </EpisodeActionButton>
-      <div
+      </EpisodeActionButton> */}
+      <div style={{ color: "#000000" }}
         dangerouslySetInnerHTML={{
           __html: episode.html,
         }}
