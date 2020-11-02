@@ -67,25 +67,22 @@ const Links = styled.div`
 const Footer = () => (
   <Container>
     <Links>
-      {/* <Link href="https://www.youtube.com/channel/UCec_mTVjUKQAsSilMJ3J1TQ">
-        YouTube
-      </Link>
-      <Link href="https://open.spotify.com/show/55IXMbPmncm67FA5ZAydtL">
+      <Link href="https://open.spotify.com/show/2qY1TaOVeRsD60wRcxnmUu">
         Spotify
       </Link>
-      <Link href="https://podcasts.apple.com/podcast/id1502694357">
+      <Link href="https://podcasts.apple.com/us/podcast/the-last-train/id1525143328">
         Apple Podcasts
       </Link>
-      <Link href="https://www.google.com/podcasts?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy8xMzlkZjg5Yy9wb2RjYXN0L3Jzcw==">
+      <Link href="https://www.google.com/podcasts?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy8yZGMwMmNjYy9wb2RjYXN0L3Jzcw==">
         Google Podcasts
       </Link>
-      <Link href="https://anchor.fm/s/139df89c/podcast/rss">RSS</Link>
-      <Link href="https://anchor.fm/require">Anchor</Link>
-      <Link href="https://twitter.com/requirepodcast">Twitter</Link>
-      <Link href="https://www.instagram.com/requirepodcast">Instagram</Link> */}
+      <Link href="https://anchor.fm/s/2dc02ccc/podcast/rss">RSS</Link>
+      <Link href="https://anchor.fm/lasttrainpod">Anchor</Link>
+      <Link href="https://twitter.com/lasttrainpod">Twitter</Link>
+      <Link href="https://www.instagram.com/lasttrainpod">Instagram</Link>
     </Links>
     <Text>
-      Copyright © {new Date().getFullYear()} The Last Train Podcast
+      Copyright © {new Date().getFullYear()} Last Train Podcast
       <br />
       <Link href="mailto:hello@thelasttrain.fm">hello@thelasttrain.fm</Link>
     </Text>

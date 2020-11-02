@@ -101,14 +101,28 @@ const Hosts = () => {
 
   const data = useStaticQuery(graphql`
     query {
-      artur: file(relativePath: { eq: "artur.jpg" }) {
+      dt: file(relativePath: { eq: "dt.jpeg" }) {
         childImageSharp {
           fixed(width: 150, height: 150) {
             ...GatsbyImageSharpFixed
           }
         }
       }
-      adam: file(relativePath: { eq: "adam.png" }) {
+      iyanu: file(relativePath: { eq: "iyanu.jpg" }) {
+        childImageSharp {
+          fixed(width: 150, height: 150) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      julianna: file(relativePath: { eq: "julianna.jpeg" }) {
+        childImageSharp {
+          fixed(width: 150, height: 150) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      tobi: file(relativePath: { eq: "tobi.jpg" }) {
         childImageSharp {
           fixed(width: 150, height: 150) {
             ...GatsbyImageSharpFixed
@@ -123,28 +137,28 @@ const Hosts = () => {
       <Heading>Hosts</Heading>
       <Wrapper ref={hostsRef}>
         <Person>
-          <Avatar fixed={data.artur.childImageSharp.fixed} />
+          <Avatar fixed={data.tobi.childImageSharp.fixed} />
           <Name>Tobi</Name>
-          <Link href="mailto:artur@dudek.ga">artur@dudek.ga</Link>
-          <Link href="https://twitter.com/arturdudek_">@arturdudek_</Link>
+          <Link href="mailto:tobijonathan94@gmail.com">tobijonathan94@gmail.com</Link>
+          <Link href="https://instagram.com/tobi_alexander94">@tobi_alexander94</Link>
         </Person>
         <Person>
-          <Avatar fixed={data.adam.childImageSharp.fixed} />
+          <Avatar fixed={data.iyanu.childImageSharp.fixed} />
           <Name>Iyanu</Name>
-          <Link href="mailto:a@siekierski.ml">a@siekierski.ml</Link>
-          <Link href="https://twitter.com/a_siekierski">@a_siekierski</Link>
+          <Link href="mailto:tolu@akindele.ca">tolu@akindele.ca</Link>
+          <Link href="https://instagram.com/tolutaughtme">@tolutaughtme</Link>
         </Person>
         <Person>
-          <Avatar fixed={data.artur.childImageSharp.fixed} />
+          <Avatar fixed={data.dt.childImageSharp.fixed} />
           <Name>DT</Name>
-          <Link href="mailto:artur@dudek.ga">artur@dudek.ga</Link>
-          <Link href="https://twitter.com/arturdudek_">@arturdudek_</Link>
+          <Link href="mailto:dolapotoki@gmail.com">dolapotoki@gmail.com</Link>
+          <Link href="https://twitter.com/dtoki_">@dtoki_</Link>
         </Person>
         <Person>
-          <Avatar fixed={data.adam.childImageSharp.fixed} />
+          <Avatar fixed={data.julianna.childImageSharp.fixed} />
           <Name>Julianna</Name>
-          <Link href="mailto:a@siekierski.ml">a@siekierski.ml</Link>
-          <Link href="https://twitter.com/a_siekierski">@a_siekierski</Link>
+          <Link href="mailto:julianna.driedger@gmail.com">julianna.driedger@gmail.com</Link>
+          <Link href="https://instagram.com/julianna_akindele">@julianna_akindele</Link>
         </Person>
       </Wrapper>
     </Container>

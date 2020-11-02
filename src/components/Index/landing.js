@@ -56,7 +56,6 @@ const Container = styled.header`
     color: #000000;
     position: absolute;
     opacity: 0.8;
-    text-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
     font-size: 5rem;
     height: 4rem;
     text-align: center;
