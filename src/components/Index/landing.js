@@ -1,7 +1,5 @@
 import React from "react"
 import styled, { keyframes } from "styled-components"
-
-import background from "../../images/background.png"
 import the_crew from "../../images/the_crew_transparent.png"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -45,7 +43,6 @@ const Container = styled.header`
   justify-content: center;
   position: relative;
   text-align: center;
-  // background-image: url(${background});
   background-position: center;
   background-size: cover;
   flex-direction: column;
