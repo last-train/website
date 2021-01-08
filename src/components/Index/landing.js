@@ -1,7 +1,7 @@
 import React from "react"
 import styled, { keyframes } from "styled-components"
 
-import background from "../../images/background_2.jpeg"
+import background from "../../images/background.png"
 import the_crew from "../../images/the_crew_transparent.png"
 import { useStaticQuery, graphql } from "gatsby"
 
