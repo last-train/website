@@ -7,7 +7,7 @@ import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 
 const Container = styled.div`
-  background-color: #0f111a;
+  background-color: #fff;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -29,13 +29,6 @@ const Wrapper = styled.div`
 const Person = styled.div`
   display: inline-block;
   padding: 3em;
-  &:last-child {
-    border-left: 1px solid #ffffff33;
-    @media (max-width: 550px) {
-      border-left: none;
-      border-top: 1px solid #ffffff33;
-    }
-  }
 `
 
 const Avatar = styled(Img)`
@@ -44,7 +37,7 @@ const Avatar = styled(Img)`
 `
 
 const Name = styled.h2`
-  color: #fff;
+  color: #000;
   font-size: 1em;
   font-weight: 400;
   margin: 1em 0;
@@ -52,7 +45,7 @@ const Name = styled.h2`
 `
 
 const Link = styled.a`
-  color: #ff5370;
+  color: #feb80a;
   font-size: 0.75em;
   font-weight: 400;
   text-align: center;
@@ -63,7 +56,7 @@ const Link = styled.a`
 
 const Heading = styled.h1`
   margin: 0 0 0.25em 0;
-  color: #ff5370;
+  color: #feb80a;
   font-size: 4em;
   font-weight: 800;
   @media (max-width: 750px) {
@@ -73,7 +66,7 @@ const Heading = styled.h1`
     font-size: 2em;
   }
   &::after {
-    border-top: 2px solid #fff;
+    border-top: 2px solid #000;
     display: block;
     width: 33.3%;
     content: "";
@@ -108,14 +101,28 @@ const Hosts = () => {
 
   const data = useStaticQuery(graphql`
     query {
-      artur: file(relativePath: { eq: "artur.jpg" }) {
+      dt: file(relativePath: { eq: "dt.jpeg" }) {
         childImageSharp {
           fixed(width: 150, height: 150) {
             ...GatsbyImageSharpFixed
           }
         }
       }
-      adam: file(relativePath: { eq: "adam.png" }) {
+      iyanu: file(relativePath: { eq: "iyanu.jpg" }) {
+        childImageSharp {
+          fixed(width: 150, height: 150) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      julianna: file(relativePath: { eq: "julianna.jpeg" }) {
+        childImageSharp {
+          fixed(width: 150, height: 150) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      tobi: file(relativePath: { eq: "tobi.jpg" }) {
         childImageSharp {
           fixed(width: 150, height: 150) {
             ...GatsbyImageSharpFixed
@@ -127,19 +134,31 @@ const Hosts = () => {
 
   return (
     <Container ref={wrapperRef}>
-      <Heading>Prowadzący</Heading>
+      <Heading>Hosts</Heading>
       <Wrapper ref={hostsRef}>
         <Person>
-          <Avatar fixed={data.artur.childImageSharp.fixed} />
-          <Name>Artur Dudek</Name>
-          <Link href="mailto:artur@dudek.ga">artur@dudek.ga</Link>
-          <Link href="https://twitter.com/arturdudek_">@arturdudek_</Link>
+          <Avatar fixed={data.tobi.childImageSharp.fixed} />
+          <Name>Tobi</Name>
+          <Link href="mailto:tobijonathan94@gmail.com">tobijonathan94@gmail.com</Link>
+          <Link href="https://instagram.com/tobi_alexander94">@tobi_alexander94</Link>
         </Person>
         <Person>
-          <Avatar fixed={data.adam.childImageSharp.fixed} />
-          <Name>Adam Siekierski</Name>
-          <Link href="mailto:a@siekierski.ml">a@siekierski.ml</Link>
-          <Link href="https://twitter.com/a_siekierski">@a_siekierski</Link>
+          <Avatar fixed={data.iyanu.childImageSharp.fixed} />
+          <Name>Iyanu</Name>
+          <Link href="mailto:tolu@akindele.ca">tolu@akindele.ca</Link>
+          <Link href="https://instagram.com/tolutaughtme">@tolutaughtme</Link>
+        </Person>
+        <Person>
+          <Avatar fixed={data.dt.childImageSharp.fixed} />
+          <Name>DT</Name>
+          <Link href="mailto:dolapotoki@gmail.com">dolapotoki@gmail.com</Link>
+          <Link href="https://twitter.com/dtoki_">@dtoki_</Link>
+        </Person>
+        <Person>
+          <Avatar fixed={data.julianna.childImageSharp.fixed} />
+          <Name>Julianna</Name>
+          <Link href="mailto:julianna.driedger@gmail.com">julianna.driedger@gmail.com</Link>
+          <Link href="https://instagram.com/julianna_akindele">@julianna_akindele</Link>
         </Person>
       </Wrapper>
     </Container>

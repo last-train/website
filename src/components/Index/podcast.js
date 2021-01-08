@@ -6,7 +6,7 @@ import { ScrollScene } from "scrollscene"
 import IndexPagePlayer from "./indexPagePlayer"
 
 const Container = styled.div`
-  background-color: #0f111a;
+  background-color: #fff;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -19,7 +19,7 @@ const Container = styled.div`
 
 const Heading = styled.h1`
   margin: 0 0 0.25em 0;
-  color: #ff5370;
+  color: #feb80a;
   font-size: 4em;
   font-weight: 800;
   @media (max-width: 750px) {
@@ -29,7 +29,7 @@ const Heading = styled.h1`
     font-size: 2em;
   }
   &::after {
-    border-top: 2px solid #fff;
+    border-top: 2px solid #000;
     display: block;
     width: 33.3%;
     content: "";
@@ -38,11 +38,11 @@ const Heading = styled.h1`
 `
 
 const H3 = styled.h3`
-  color: #ff5370;
+  color: #feb80a;
   padding: 0 30px;
 
   a {
-    color: white;
+    color: #000000;
   }
 `
 
@@ -77,11 +77,11 @@ const Podcast = () => {
 
   return (
     <Container ref={wrapperRef}>
-      <Heading>Posłuchaj</Heading>
+      <Heading>Podcasts</Heading>
       <IndexPagePlayer ref={playerRef} />
       <H3>
-        Więcej odcinków, timestampy, linki i dodatkowe informacje w{" "}
-        <a href="/archive">archiwum</a>
+        More episodes, timestamps, links and additional information in{" "}
+        <a href="/archive">archive</a>
       </H3>
     </Container>
   )

@@ -1,14 +1,14 @@
 @import "../fonts/fira_code.css";
 
 html {
-  font-family: "Fira Code", monospace;
-  font-weight: 800;
-  color: #fff;
+  font-family: "Avenir", Arial, Helvetica, sans-serif;
+  /* font-weight: 800; */
+  color: #feb80a;
 }
 
 body {
   margin: 0;
-  background-color: #0f111a;
+  background-color: #ffffff;
 }
 
 * {

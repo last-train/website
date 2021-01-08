@@ -1,9 +1,9 @@
 {
-  "name": "require-podcast",
+  "name": "last-train-podcast",
   "private": true,
-  "description": "Przemyślenia dwójki programistów - Adama i Artura - na temat nowości i wydarzeń w świecie frontendu, backendu i nie tylko.",
-  "version": "1.0.0",
-  "author": "Adam Siekierski & Artur Dudek",
+  "description": "Sincere. Honest. Candid.",
+  "version": "0.0.1",
+  "author": "Dolapo Toki & Tolu Akindele",
   "dependencies": {
     "@mdi/js": "^5.1.45",
     "@mdi/react": "^1.4.0",
@@ -44,8 +44,8 @@
     "prettier": "^2.0.2"
   },
   "keywords": [
-    "require",
-    "podcast"
+    "last",
+    "train"
   ],
   "scripts": {
     "build": "gatsby build",

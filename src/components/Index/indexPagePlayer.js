@@ -7,7 +7,7 @@ import Ticker from "react-ticker"
 const Wrapper = styled.div`
   width: 100%;
   max-width: 800px;
-  background-color: #1d1f2d;
+  background-color: #000000;
   margin: 1em auto;
 `
 

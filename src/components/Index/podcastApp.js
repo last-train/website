@@ -4,7 +4,7 @@ import { useHeadingAnimation } from "../../utils/useHeadingAnimation"
 
 const Heading = styled.h1`
   margin: 0 0 0.25em 0;
-  color: #ff5370;
+  color: #feb80a;
   font-size: 4em;
   font-weight: 800;
   text-align: center;
@@ -19,7 +19,7 @@ const Heading = styled.h1`
   }
 
   &::after {
-    border-top: 2px solid #fff;
+    border-top: 2px solid #000;
     display: block;
     width: 33.3%;
     content: "";
@@ -28,7 +28,7 @@ const Heading = styled.h1`
 `
 
 const Container = styled.div`
-  background-color: #0f111a;
+  background-color: #ffffff;
   min-height: 100vh;
   padding: 20px;
   display: flex;
@@ -45,7 +45,7 @@ const Wrapper = styled.div`
 
 const DownloadButton = styled.a`
   display: inline-block;
-  background-color: #ff5370;
+  background-color: #feb80a;
   padding: 10px 20px;
   margin: 1em auto;
   transition: opacity 0.3s ease;
@@ -67,9 +67,9 @@ const PodcastApp = () => {
       <Heading>Pobierz apkę</Heading>
       <Wrapper>
         <p>
-          Oficjalna aplikacja Require Podcast jest już dostępna w wersji beta!
-          By wygodniej słuchać naszego podcastu, móc sprawdzać archiwum podczas
-          słuchania i wiele więcej, pobierz Require Podcast App!
+          Oficjalna aplikacja The Last Train Podcast jest już dostępna w wersji
+          beta! By wygodniej słuchać naszego podcastu, móc sprawdzać archiwum
+          podczas słuchania i wiele więcej, pobierz The Last Train Podcast App!
         </p>
         <DownloadButton href="https://app.podcast.gq">Pobierz</DownloadButton>
       </Wrapper>
