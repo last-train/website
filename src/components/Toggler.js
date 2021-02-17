@@ -14,7 +14,7 @@ const Button = styled.button`
 const Toggle = ({theme,  toggleTheme }) => {
   return (
     <Button onClick={toggleTheme} >
-      Switch Theme
+      { theme === 'dark' ? 'Turn Off Dark Mode' : 'Turn On Dark Mode' }
     </Button>
   );
 };

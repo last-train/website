@@ -7,7 +7,7 @@ import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 
 const Container = styled.div`
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.secondaryBackground};
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -37,7 +37,6 @@ const Avatar = styled(Img)`
 `
 
 const Name = styled.h2`
-  color: #000;
   font-size: 1em;
   font-weight: 400;
   margin: 1em 0;
@@ -45,7 +44,7 @@ const Name = styled.h2`
 `
 
 const Link = styled.a`
-  color: #feb80a;
+  color: ${({ theme }) => theme.link};
   font-size: 0.75em;
   font-weight: 400;
   text-align: center;
@@ -56,7 +55,7 @@ const Link = styled.a`
 
 const Heading = styled.h1`
   margin: 0 0 0.25em 0;
-  color: #feb80a;
+  color: ${({ theme }) => theme.text};
   font-size: 4em;
   font-weight: 800;
   @media (max-width: 750px) {

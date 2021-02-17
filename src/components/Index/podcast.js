@@ -18,6 +18,7 @@ const Container = styled.div`
 `
 
 const Heading = styled.h1`
+  color: ${({ theme }) => theme.text};
   margin: 0 0 0.25em 0;
   font-size: 4em;
   font-weight: 800;
@@ -40,7 +41,7 @@ const H3 = styled.h3`
   padding: 0 30px;
 
   a {
-    color: #000000;
+    color: ${({ theme }) => theme.link};
   }
 `
 
