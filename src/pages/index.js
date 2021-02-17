@@ -25,9 +25,9 @@ const IndexPage = () => {
       <Layout>
         <Toggle theme={theme} toggleTheme={themeToggler} />
         <SEO title="The Last Train Podcast" />
-        <Landing />
-        <Podcast />
-        <Hosts />
+        <Landing theme={theme} />
+        <Podcast theme={theme} />
+        <Hosts theme={theme} />
       </Layout>
     </ThemeProvider>
   )

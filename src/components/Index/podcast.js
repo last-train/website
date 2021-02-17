@@ -6,7 +6,7 @@ import { ScrollScene } from "scrollscene"
 import IndexPagePlayer from "./indexPagePlayer"
 
 const Container = styled.div`
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.secondaryBackground};
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -19,7 +19,6 @@ const Container = styled.div`
 
 const Heading = styled.h1`
   margin: 0 0 0.25em 0;
-  color: #feb80a;
   font-size: 4em;
   font-weight: 800;
   @media (max-width: 750px) {
@@ -38,7 +37,6 @@ const Heading = styled.h1`
 `
 
 const H3 = styled.h3`
-  color: #feb80a;
   padding: 0 30px;
 
   a {
