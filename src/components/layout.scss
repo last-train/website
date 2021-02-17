@@ -1,18 +1,6 @@
 @import "../fonts/fira_code.css";
-@import "./brand-colors.scss";
-
-$font-stack: "Avenir", Arial, Helvetica, sans-serif;
-
-html {
-  font-family: $font-stack;
-  color: $brand-yellow;
-}
 
 body {
-  margin: 0;
-  background-color: $brand-white;
-}
-
-* {
-  box-sizing: border-box;
+  color: #999;
+  color: #363537;
 }

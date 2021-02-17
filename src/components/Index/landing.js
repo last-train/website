@@ -23,7 +23,6 @@ const animateWave = keyframes`
 
 const Title = styled.h1`
   margin: 0 0 0.25em 0;
-  color: #000000;
   font-size: 5em;
   font-weight: 800;
 
@@ -36,7 +35,6 @@ const Title = styled.h1`
 `
 
 const Container = styled.header`
-  background-color: #feb80a;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -50,7 +48,6 @@ const Container = styled.header`
   &::after {
     content: "⌄";
     font-weight: 100;
-    color: #000000;
     position: absolute;
     opacity: 0.8;
     font-size: 5rem;
@@ -67,7 +64,6 @@ const Container = styled.header`
 `
 
 const Subtitle = styled.h2`
-  color: #000000;
   font-size: 1.5em;
   font-weight: 400;
   max-width: 800px;
