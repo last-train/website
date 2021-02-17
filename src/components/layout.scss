@@ -1,25 +1,16 @@
 @import "../fonts/fira_code.css";
+@import "./brand-colors.scss";
 
 $font-stack: "Avenir", Arial, Helvetica, sans-serif;
 
-// Brand Colors
-$brand-yellow: #feb80a;
-$brand-orange: #e2623d;
-$brand-megenta: #f13556;
-$brand-teal: #70beb0;
-$brand-blue: #3e4890;
-$brand-grey: #888da3;
-$brand-black: #000000;
-$brand-white: #ffffff;
-
 html {
   font-family: $font-stack;
-  color: #feb80a;
+  color: $brand-yellow;
 }
 
 body {
   margin: 0;
-  background-color: #ffffff;
+  background-color: $brand-white;
 }
 
 * {
