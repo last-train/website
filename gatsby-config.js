@@ -52,6 +52,12 @@ module.exports = {
         icon: `src/images/favicon.png`,
       },
     },
+    {
+      resolve: 'gatsby-source-anchor',
+      options: {
+        rss: 'https://anchor.fm/s/2dc02ccc/podcast/rss',
+      },
+    },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`,
