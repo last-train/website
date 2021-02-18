@@ -21,7 +21,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   margin-top: 3em;
   display: flex;
-  @media (max-width: 550px) {
+  @media (max-width: 768px) {
     flex-direction: column;
   }
 `

@@ -35,7 +35,7 @@ const Title = styled.h1`
 `
 
 const Container = styled.header`
-  height: 100vh;
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,6 +60,10 @@ const Container = styled.header`
     @media (max-height: 550px) {
       display: none;
     }
+  }
+
+  @media (max-width: 768px) {
+    height: 92vh;
   }
 `
 
@@ -102,9 +106,9 @@ const Landing = (props) => {
   return (
     <Container>
       <div className="row">
-        <div className="logo" style={{ margin: "0 0 1em 0" }}>
+        {/* <div className="logo" style={{ margin: "0 0 1em 0" }}>
           <img src={the_crew} height="100px" />
-        </div>
+        </div> */}
       </div>
       <Title>The Last Train Podcast</Title>
       <Subtitle>{siteMetadata.description}</Subtitle>
