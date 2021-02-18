@@ -41,7 +41,7 @@ const Archive = ({ data }) => {
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles/>
-      <Layout>
+      <Layout theme={theme} toggleTheme={themeToggler}>
         <SEO title={episode.frontmatter.title} />
         <Wrapper>
           <List />
