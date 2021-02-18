@@ -53,8 +53,8 @@ const Archive = ({ data }) => {
 }
 
 export const query = graphql`
-  query EpisodeQuery {
-    anchorEpisode(id: {eq: "anchor-episode-1e8ca19d-dbba-477d-ac9e-bf11b3fa892f"}) {
+  query EpisodeQuery($id: String) {
+    anchorEpisode(id: { eq: $id }) {
       id
       isoDate(formatString: "dddd MMMM Do, YYYY")
       title

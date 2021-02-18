@@ -75,7 +75,6 @@ const List = () => {
           title
           content
         }
-        totalCount
       }
     }
   `)
@@ -89,7 +88,7 @@ const List = () => {
         {episodes
           .map((episode) => (
             <ListItem key={episode.id}>
-              <ItemHeading to={`/archive#${episode.id}`}>
+              <ItemHeading to={`/archive/${episode.id}`}>
                 {episode.title}
               </ItemHeading>
               <p style={{ fontWeight: "800", color: "#00000088", margin: 0 }}>
