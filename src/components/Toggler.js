@@ -11,7 +11,7 @@ const Button = styled.button`
   padding: 0.6rem;
   }
 `;
-const Toggler = ({theme,  toggleTheme }) => {
+const Toggler = ({theme, toggleTheme }) => {
   return (
     <Button onClick={toggleTheme} >
       { theme === 'dark' ? 'Turn Off Dark Mode' : 'Turn On Dark Mode' }

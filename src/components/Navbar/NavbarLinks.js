@@ -1,6 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import Toggler from "../../components/Toggler";
+import { useDarkMode } from "../../components/useDarkMode";
+import { lightTheme, darkTheme } from "../../components/Themes";
 
 const NavItem = styled(Link)`
   text-decoration: none;
@@ -37,12 +40,13 @@ const NavItem = styled(Link)`
     z-index: 6;
   }
 `
-const NavbarLinks = () => {
+const NavbarLinks = (props) => {
   return (
     <>
       <NavItem to="/#podcasts">Podcasts</NavItem>
       <NavItem to="/#hosts">Hosts</NavItem>
       <NavItem to="/archive">Archive</NavItem>
+      <Toggler theme={props.theme} toggleTheme={props.toggleTheme} />
     </>
   )
 }

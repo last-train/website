@@ -7,7 +7,7 @@ import Landing from "../components/Index/landing"
 import Podcast from "../components/Index/podcast"
 import Hosts from "../components/Index/hosts"
 
-import Toggle from "../components/Toggler";
+import Toggler from "../components/Toggler";
 import { ThemeProvider } from "styled-components";
 import { useDarkMode } from "../components/useDarkMode";
 import { GlobalStyles } from "../components/globalStyles";
@@ -22,8 +22,7 @@ const IndexPage = () => {
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles/>
-      <Layout>
-        <Toggle theme={theme} toggleTheme={themeToggler} />
+      <Layout theme={theme} toggleTheme={themeToggler}>
         <SEO title="The Last Train Podcast" />
         <Landing theme={theme} />
         <Podcast theme={theme} />

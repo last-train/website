@@ -87,7 +87,7 @@ const Hamburger = styled.div`
     top: 10px;
   }
 `
-const Navbar = () => {
+const Navbar = (props) => {
   const [navbarOpen, setNavbarOpen] = useState(false)
 
   return (
@@ -101,11 +101,11 @@ const Navbar = () => {
       </Toggle>
       {navbarOpen ? (
         <Navbox>
-          <NavbarLinks />
+          <NavbarLinks theme={props.theme} toggleTheme={props.toggleTheme} />
         </Navbox>
       ) : (
         <Navbox open>
-          <NavbarLinks />
+          <NavbarLinks theme={props.theme} toggleTheme={props.toggleTheme} />
         </Navbox>
       )}
     </Navigation>
