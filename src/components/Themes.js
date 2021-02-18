@@ -3,7 +3,7 @@ import brandColors from "./brandColors"
 export const lightTheme = {
   body: brandColors.brandYellow,
   text: brandColors.brandBlack,
-  link: brandColors.brandBlack,
+  link: brandColors.brandYellow,
   secondaryBackground: brandColors.brandWhite,
   background: brandColors.brandWhite,
   toggleBorder: brandColors.brandBlack,

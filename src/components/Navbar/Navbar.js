@@ -5,9 +5,10 @@ import Logo from "./Logo"
 
 const Navigation = styled.nav`
   height: 10vh;
+  min-height: 70px;
   display: flex;
   background-color: #fff;
-  position: relative;
+  position: sticky;
   justify-content: space-between;
   text-transform: uppercase;
   border-bottom: 2px solid #33333320;
@@ -30,7 +31,7 @@ const Toggle = styled.div`
   display: none;
   height: 100%;
   cursor: pointer;
-  padding: 0 10vw;
+  padding: 0;
 
   @media (max-width: 768px) {
     display: flex;

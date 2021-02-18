@@ -7,7 +7,6 @@ import Landing from "../components/Index/landing"
 import Podcast from "../components/Index/podcast"
 import Hosts from "../components/Index/hosts"
 
-import Toggler from "../components/Toggler";
 import { ThemeProvider } from "styled-components";
 import { useDarkMode } from "../components/useDarkMode";
 import { GlobalStyles } from "../components/globalStyles";
