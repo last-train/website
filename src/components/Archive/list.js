@@ -96,8 +96,10 @@ const List = () => {
                 {" "}
                 {episode.isoDate}
               </p>
-              <p style={{ color: "#000000", margin: 0 }}>
-                {episode.content}
+              <p style={{ color: "#000000", margin: 0 }}
+                dangerouslySetInnerHTML={{
+                  __html: episode.content,
+                }}>
               </p>
             </ListItem>
           ))

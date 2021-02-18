@@ -73,12 +73,12 @@ function getDownloadLink(link) {
 
 const Episode = ({ episode }) => (
   <Wrapper>
-    <Player url={episode.frontmatter.audioUrl} />
+    <Player url={episode.enclosure.url} />
     <ContentConatiner>
       <span style={{ fontWeight: "800", color: "#00000088" }}>
-        {episode.frontmatter.publicationDate}
+        {episode.isoDate}
       </span>
-      <Heading>{episode.frontmatter.title}</Heading>
+      <Heading>{episode.title}</Heading>
       {/* <EpisodeActionButton
         href={getDownloadLink(episode.frontmatter.audioUrl)}
         download="download"
@@ -96,7 +96,7 @@ const Episode = ({ episode }) => (
       </EpisodeActionButton> */}
       <div style={{ color: "#000000" }}
         dangerouslySetInnerHTML={{
-          __html: episode.html,
+          __html: episode.content,
         }}
       />
     </ContentConatiner>
