@@ -132,7 +132,7 @@ const Hosts = () => {
   `)
 
   return (
-    <Container ref={wrapperRef}>
+    <Container id="hosts" ref={wrapperRef}>
       <Heading>Hosts</Heading>
       <Wrapper ref={hostsRef}>
         <Person>

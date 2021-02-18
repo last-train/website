@@ -11,15 +11,15 @@ const Button = styled.button`
   padding: 0.6rem;
   }
 `;
-const Toggle = ({theme,  toggleTheme }) => {
+const Toggler = ({theme,  toggleTheme }) => {
   return (
     <Button onClick={toggleTheme} >
       { theme === 'dark' ? 'Turn Off Dark Mode' : 'Turn On Dark Mode' }
     </Button>
   );
 };
-Toggle.propTypes = {
+Toggler.propTypes = {
   theme: string.isRequired,
   toggleTheme: func.isRequired,
 }
-export default Toggle;
+export default Toggler;
