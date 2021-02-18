@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -6,18 +6,29 @@ import SEO from "../components/seo"
 import Landing from "../components/Index/landing"
 import Podcast from "../components/Index/podcast"
 import Hosts from "../components/Index/hosts"
-import PodcastApp from "../components/Index/podcastApp"
-import Newsletter from "../components/newsletter"
 
-const IndexPage = () => (
-  <Layout>
-    {/* <Newsletter /> */}
-    <SEO title="The Last Train Podcast" />
-    <Landing />
-    <Podcast />
-    <Hosts />
-    {/* <PodcastApp /> */}
-  </Layout>
-)
+import { ThemeProvider } from "styled-components";
+import { useDarkMode } from "../components/useDarkMode";
+import { GlobalStyles } from "../components/globalStyles";
+import { lightTheme, darkTheme } from "../components/Themes";
+
+const IndexPage = () => {
+  const [theme, themeToggler, mountedComponent] = useDarkMode();
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+
+  if(!mountedComponent) return <div/>
+
+  return (
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyles/>
+      <Layout theme={theme} toggleTheme={themeToggler}>
+        <SEO title="The Last Train Podcast" />
+        <Landing theme={theme} />
+        <Podcast theme={theme} />
+        <Hosts theme={theme} />
+      </Layout>
+    </ThemeProvider>
+  )
+}
 
 export default IndexPage

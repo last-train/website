@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 
@@ -6,6 +6,11 @@ import SEO from "../components/seo"
 import Layout from "../components/layout"
 import List from "../components/Archive/list"
 import Episode from "../components/Archive/episode"
+
+import { ThemeProvider } from "styled-components";
+import { useDarkMode } from "../components/useDarkMode";
+import { GlobalStyles } from "../components/globalStyles";
+import { lightTheme, darkTheme } from "../components/Themes";
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -28,15 +33,22 @@ const Wrapper = styled.div`
 
 const Archive = ({ data }) => {
   const episode = data.file.childMarkdownRemark
+  const [theme, themeToggler, mountedComponent] = useDarkMode();
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+
+  if(!mountedComponent) return <div/>
 
   return (
-    <Layout>
-      <SEO title={episode.frontmatter.title} />
-      <Wrapper>
-        <List />
-        <Episode episode={episode} />
-      </Wrapper>
-    </Layout>
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyles/>
+      <Layout theme={theme} toggleTheme={themeToggler}>
+        <SEO title={episode.frontmatter.title} />
+        <Wrapper>
+          <List />
+          <Episode episode={episode} />
+        </Wrapper>
+      </Layout>
+    </ThemeProvider>
   )
 }
 
