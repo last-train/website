@@ -16,7 +16,6 @@ const EpisodeInfo = styled.div`
   padding: 20px 20px 5px 20px;
   border-bottom: 1px solid #141621;
   text-align: left;
-  color: red;
 
   .ticker {
     margin: 5px 0;
@@ -67,7 +66,7 @@ const IndexPagePlayer = forwardRef((props, ref) => {
       >
         <H4>{title}</H4>
         <Ticker speed={10} mode="await" move={playing || mouseOver}>
-          {() => <MarqueeContent>{content}</MarqueeContent>}
+          {() => <MarqueeContent>{content.replace(/(<([^>]+)>)/gi, "")}</MarqueeContent>}
         </Ticker>
       </EpisodeInfo>
       <Player
