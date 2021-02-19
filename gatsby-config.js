@@ -33,14 +33,6 @@ module.exports = {
       ],
     },
     {
-      resolve: `gatsby-source-git`,
-      options: {
-        name: ``,
-        remote: ``,
-        patterns: ``,
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `The Last Train Podcast`,
