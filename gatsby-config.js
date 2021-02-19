@@ -35,9 +35,9 @@ module.exports = {
     {
       resolve: `gatsby-source-git`,
       options: {
-        name: `episodes`,
-        remote: `https://github.com/requirepodcast/episodes.git`,
-        patterns: `episodes/*.md`,
+        name: ``,
+        remote: ``,
+        patterns: ``,
       },
     },
     {
@@ -50,6 +50,12 @@ module.exports = {
         theme_color: `#feb80a`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-anchor',
+      options: {
+        rss: 'https://anchor.fm/s/2dc02ccc/podcast/rss',
       },
     },
     `gatsby-plugin-styled-components`,

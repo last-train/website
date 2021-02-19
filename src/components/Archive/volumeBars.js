@@ -33,6 +33,7 @@ const VolumeBars = ({ setVolume, volume }) => (
         verticalAlign: "middle",
         textAlign: "center",
         fontSize: 10,
+        color: "#fff",
       }}
     >
       Volume

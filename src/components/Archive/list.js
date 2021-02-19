@@ -68,29 +68,18 @@ const ItemHeading = styled(Link)`
 const List = () => {
   const data = useStaticQuery(graphql`
     query EpisodeList {
-      allFile(
-        filter: { sourceInstanceName: { eq: "episodes" } }
-        sort: {
-          order: ASC
-          fields: childMarkdownRemark___frontmatter___publicationDate
-        }
-      ) {
+      allAnchorEpisode(sort: {order: ASC, fields: isoDate}) {
         nodes {
           id
-          childMarkdownRemark {
-            frontmatter {
-              title
-              slug
-              shortDescription
-              publicationDate
-            }
-          }
+          isoDate(formatString: "dddd MMMM Do, YYYY")
+          title
+          content
         }
       }
     }
   `)
 
-  const episodes = data.allFile.nodes
+  const episodes = data.allAnchorEpisode.nodes
 
   return (
     <Wrapper>
@@ -99,17 +88,17 @@ const List = () => {
         {episodes
           .map((episode) => (
             <ListItem key={episode.id}>
-              <ItemHeading
-                to={`/archive${episode.childMarkdownRemark.frontmatter.slug}`}
-              >
-                {episode.childMarkdownRemark.frontmatter.title}
+              <ItemHeading to={`/archive/${episode.id}`}>
+                {episode.title}
               </ItemHeading>
               <p style={{ fontWeight: "800", color: "#00000088", margin: 0 }}>
                 {" "}
-                {episode.childMarkdownRemark.frontmatter.publicationDate}
+                {episode.isoDate}
               </p>
-              <p style={{ color: "#000000", margin: 0 }}>
-                {episode.childMarkdownRemark.frontmatter.shortDescription}
+              <p style={{ color: "#000000", margin: 0 }}
+                dangerouslySetInnerHTML={{
+                  __html: episode.content,
+                }}>
               </p>
             </ListItem>
           ))

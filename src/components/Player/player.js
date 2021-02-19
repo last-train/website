@@ -76,7 +76,7 @@ class Player extends React.Component {
         isLoading: this.audioRef.currentTime === prevTime,
       }))
 
-      if (this.audioRef.currentTime >= this.audioRef.duration) {
+      if (this.audioRef?.currentTime >= this.audioRef?.duration) {
         this.setState({ isPlaying: false, isLoading: false })
         clearInterval(this.playingInterval)
       }

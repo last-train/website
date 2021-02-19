@@ -32,7 +32,7 @@ const Wrapper = styled.div`
 `
 
 const Archive = ({ data }) => {
-  const episode = data.file.childMarkdownRemark
+  const episode = data.anchorEpisode
   const [theme, themeToggler, mountedComponent] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
@@ -42,7 +42,7 @@ const Archive = ({ data }) => {
     <ThemeProvider theme={themeMode}>
       <GlobalStyles/>
       <Layout theme={theme} toggleTheme={themeToggler}>
-        <SEO title={episode.frontmatter.title} />
+        <SEO title={episode.title} />
         <Wrapper>
           <List />
           <Episode episode={episode} />
@@ -53,19 +53,14 @@ const Archive = ({ data }) => {
 }
 
 export const query = graphql`
-  query EpisodeQuery($id: String!) {
-    file(id: { eq: $id }) {
-      childMarkdownRemark {
-        frontmatter {
-          youtubeUrl
-          title
-          spotifyUrl
-          slug
-          shortDescription
-          publicationDate
-          audioUrl
-        }
-        html
+  query EpisodeQuery($id: String) {
+    anchorEpisode(id: { eq: $id }) {
+      id
+      isoDate(formatString: "dddd MMMM Do, YYYY")
+      title
+      content
+      enclosure {
+        url
       }
     }
   }

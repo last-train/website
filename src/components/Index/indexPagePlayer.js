@@ -25,6 +25,7 @@ const EpisodeInfo = styled.div`
 
 const H4 = styled.h4`
   margin: 0;
+  color: #fff;
 `
 
 const MarqueeContent = styled.p`
@@ -39,21 +40,12 @@ const IndexPagePlayer = forwardRef((props, ref) => {
 
   const data = useStaticQuery(graphql`
     query IndexPageQuery {
-      allFile(
-        filter: { sourceInstanceName: { eq: "episodes" } }
-        sort: {
-          order: DESC
-          fields: childMarkdownRemark___frontmatter___publicationDate
-        }
-        limit: 1
-      ) {
+      allAnchorEpisode(sort: {order: DESC, fields: isoDate}, limit: 1) {
         nodes {
-          childMarkdownRemark {
-            frontmatter {
-              title
-              audioUrl
-              shortDescription
-            }
+          title
+          content
+          enclosure {
+            url
           }
         }
       }
@@ -62,9 +54,9 @@ const IndexPagePlayer = forwardRef((props, ref) => {
 
   const {
     title,
-    shortDescription,
-    audioUrl,
-  } = data.allFile.nodes[0].childMarkdownRemark.frontmatter
+    content,
+    enclosure,
+  } = data.allAnchorEpisode.nodes[0]
 
   return (
     <Wrapper {...props} ref={ref}>
@@ -74,11 +66,11 @@ const IndexPagePlayer = forwardRef((props, ref) => {
       >
         <H4>{title}</H4>
         <Ticker speed={10} mode="await" move={playing || mouseOver}>
-          {() => <MarqueeContent>{shortDescription}</MarqueeContent>}
+          {() => <MarqueeContent>{content.replace(/(<([^>]+)>)/gi, "")}</MarqueeContent>}
         </Ticker>
       </EpisodeInfo>
       <Player
-        url={audioUrl}
+        url={enclosure.url}
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
       />
