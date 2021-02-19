@@ -80,18 +80,12 @@ const Episode = ({ episode }) => (
       </span>
       <Heading>{episode.title}</Heading>
       {/* <EpisodeActionButton
-        href={getDownloadLink(episode.frontmatter.audioUrl)}
+        href={getDownloadLink(episode.enclosure.url)}
         download="download"
       >
         Download Episode{" "}
         <span role="img" aria-label="download icon">
           💾
-        </span>
-      </EpisodeActionButton>
-      <EpisodeActionButton href={episode.frontmatter.youtubeUrl}>
-        Watch On YouTube{" "}
-        <span role="img" aria-label="download icon">
-          📺
         </span>
       </EpisodeActionButton> */}
       <div style={{ color: "#000000" }}

@@ -35,9 +35,9 @@ module.exports = {
     {
       resolve: `gatsby-source-git`,
       options: {
-        name: `episodes`,
-        remote: `https://github.com/requirepodcast/episodes.git`,
-        patterns: `episodes/*.md`,
+        name: ``,
+        remote: ``,
+        patterns: ``,
       },
     },
     {
