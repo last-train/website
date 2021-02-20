@@ -28,3 +28,11 @@ To build your gatsby site
 npm install
 gatsby build
 ```
+
+## Firebase
+
+Deploy to staging
+
+```
+firebase hosting:channel:deploy staging
+```
