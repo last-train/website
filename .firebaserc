@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "last-train-pod"
+  },
+  "targets": {
+    "last-train-pod": {
+      "hosting": {
+        "production": [
+          "last-train-pod"
+        ]
+      }
+    }
   }
 }
