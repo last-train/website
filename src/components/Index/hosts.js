@@ -7,7 +7,6 @@ import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
 
 const Container = styled.div`
-  background-color: ${({ theme }) => theme.secondaryBackground};
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -65,7 +64,7 @@ const Heading = styled.h1`
     font-size: 2em;
   }
   &::after {
-    border-top: 2px solid #000;
+    border-top: 2px solid ${({ theme }) => theme.link};
     display: block;
     width: 33.3%;
     content: "";

@@ -7,7 +7,7 @@ const Navigation = styled.nav`
   height: 10vh;
   min-height: 70px;
   display: flex;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.navBar};
   position: sticky;
   justify-content: space-between;
   text-transform: uppercase;
@@ -50,7 +50,7 @@ const Navbox = styled.div`
     width: 100%;
     justify-content: flex-start;
     padding-top: 10vh;
-    background-color: #fff;
+    background-color: ${({ theme }) => theme.navBar};
     transition: all 0.3s ease-in;
     top: 8vh;
     left: ${props => (props.open ? "-100%" : "0")};
@@ -58,7 +58,7 @@ const Navbox = styled.div`
 `
 
 const Hamburger = styled.div`
-  background-color: #111;
+  background-color: ${({ theme }) => theme.link};
   width: 30px;
   height: 3px;
   transition: all .3s linear;
@@ -70,7 +70,7 @@ const Hamburger = styled.div`
   ::after {
     width: 30px;
     height: 3px;
-    background-color: #111;
+    background-color: ${({ theme }) => theme.link};
     content: "";
     position: absolute;
     transition: all 0.3s linear;

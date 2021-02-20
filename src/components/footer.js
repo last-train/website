@@ -2,11 +2,12 @@ import React from "react"
 import styled from "styled-components"
 
 const Container = styled.footer`
-  background-color: #141621;
+  background-color: ${({ theme }) => theme.footer};
   padding: 2em 6em;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-top: 2px solid #33333320;
   position: relative;
   @media (max-width: 700px) {
     flex-direction: column;
@@ -15,18 +16,20 @@ const Container = styled.footer`
 `
 
 const Link = styled.a`
-  color: #ffffff88;
+  color: ${({ theme }) => theme.link};
   font-size: 1em;
   text-decoration: none;
   display: block;
   font-weight: 100;
-  &:hover {
-    color: #ffffff;
+  transition: all 200ms ease-in;
+
+  :hover {
+    color: white;
   }
 `
 
 const Text = styled.p`
-  color: #ffffff88;
+  color: ${({ theme }) => theme.text};
   font-size: 1em;
   font-weight: 100;
   text-align: right;

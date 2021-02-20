@@ -22,7 +22,7 @@ const IndexPage = () => {
     <ThemeProvider theme={themeMode}>
       <GlobalStyles/>
       <Layout theme={theme} toggleTheme={themeToggler}>
-        <SEO title="The Last Train Podcast" />
+        <SEO title="Last Train Podcast" />
         <Landing theme={theme} />
         <Podcast theme={theme} />
         <Hosts theme={theme} />

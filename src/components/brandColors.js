@@ -7,6 +7,7 @@ const brandColors = {
   brandGrey: '#888da3',
   brandBlack: '#000000',
   brandWhite: '#ffffff',
+  brandDark: '#121212'
 }
 
 export default brandColors;

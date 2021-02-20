@@ -10,6 +10,13 @@ const Button = styled.button`
   font-size: 0.8rem;
   padding: 0.6rem;
   }
+
+  @media (max-width: 768px) {
+    margin: 20px 0;
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    z-index: 6;
+  }
 `;
 const Toggler = ({theme, toggleTheme }) => {
   return (
