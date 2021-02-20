@@ -7,7 +7,7 @@ const Container = styled.footer`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 2px solid #33333320;
+  border-top: 2px solid ${({ theme }) => theme.navFooterBorder};
   position: relative;
   @media (max-width: 700px) {
     flex-direction: column;

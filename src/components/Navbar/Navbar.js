@@ -11,7 +11,7 @@ const Navigation = styled.nav`
   position: sticky;
   justify-content: space-between;
   text-transform: uppercase;
-  border-bottom: 2px solid #33333320;
+  border-bottom: 2px solid ${({ theme }) => theme.navFooterBorder};
   margin: 0 auto;
   padding: 0 5vw;
   z-index: 2;
