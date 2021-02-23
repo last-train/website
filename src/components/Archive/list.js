@@ -9,7 +9,6 @@ const Wrapper = styled.aside`
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
   padding: 10px;
   text-align: center;
 
@@ -21,7 +20,6 @@ const Wrapper = styled.aside`
 
 const Heading = styled.h1`
   margin: 0.5em 0;
-  color: #000000;
   font-size: 2.5em;
   font-weight: 800;
   display: inline-block;
@@ -57,7 +55,7 @@ const ItemHeading = styled(Link)`
   font-size: 1.2em;
   font-weight: 800;
   text-decoration: none;
-  color: #000;
+  color: ${({ theme }) => theme.text};
   margin: 0;
 
   :hover {
@@ -65,7 +63,13 @@ const ItemHeading = styled(Link)`
   }
 `
 
-const List = () => {
+const ItemSubHeading = styled.p`
+  font-weight: 600;
+  color: ${({ theme }) => theme.textV2};
+  margin: 0;
+`
+
+const List = (props) => {
   const data = useStaticQuery(graphql`
     query EpisodeList {
       allAnchorEpisode(sort: {order: ASC, fields: isoDate}) {
@@ -91,11 +95,11 @@ const List = () => {
               <ItemHeading to={`/archive/${episode.id}`}>
                 {episode.title}
               </ItemHeading>
-              <p style={{ fontWeight: "800", color: "#00000088", margin: 0 }}>
+              <ItemSubHeading>
                 {" "}
                 {episode.isoDate}
-              </p>
-              <p style={{ color: "#000000", margin: 0 }}
+              </ItemSubHeading>
+              <p style={{ color: ({ theme }) => theme.text, margin: 0 }}
                 dangerouslySetInnerHTML={{
                   __html: episode.content,
                 }}>

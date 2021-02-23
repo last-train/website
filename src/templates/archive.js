@@ -44,8 +44,8 @@ const Archive = ({ data }) => {
       <Layout theme={theme} toggleTheme={themeToggler}>
         <SEO title={episode.title} />
         <Wrapper>
-          <List />
-          <Episode episode={episode} />
+          <List theme={theme} />
+          <Episode theme={theme} episode={episode} />
         </Wrapper>
       </Layout>
     </ThemeProvider>

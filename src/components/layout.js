@@ -8,7 +8,7 @@ const Layout = (props) => {
     <>
       <Navbar theme={props.theme} toggleTheme={props.toggleTheme} />
       {props.children}
-      <Footer />
+      <Footer theme={props.theme} />
     </>
   )
 }

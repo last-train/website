@@ -10,14 +10,14 @@ export const GlobalStyles = createGlobalStyle`
     // transition: all 0.50s linear;
 
     color: ${({ theme }) => theme.text};
-    transition: color 0.50s linear;
-    -ms-transition: color 0.50s linear;
-    -webkit-transition: color 0.50s linear;
+    transition: color 0.30s linear;
+    -ms-transition: color 0.30s linear;
+    -webkit-transition: color 0.30s linear;
 
-    background: ${({ theme }) => theme.body};
-    transition: background 0.50s linear;
-    -ms-transition: background 0.50s linear;
-    -webkit-transition: background 0.50s linear;
+    background-color: ${({ theme }) => theme.body};
+    transition: background-color 0.30s linear;
+    -ms-transition: background-color 0.30s linear;
+    -webkit-transition: background-color 0.30s linear;
 
     font-family: "Avenir", Arial, Helvetica, sans-serif;
   }

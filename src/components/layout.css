@@ -1,1 +1,5 @@
 @import "../fonts/fira_code.css";
+
+a {
+  color: #feb80a;
+}

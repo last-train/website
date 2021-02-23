@@ -5,7 +5,7 @@ import Toggler from "../../components/Toggler";
 
 const NavItem = styled(Link)`
   text-decoration: none;
-  color: #111;
+  color: ${({ theme }) => theme.text};
   display: inline-block;
   white-space: nowrap;
   margin: 0 1vw;

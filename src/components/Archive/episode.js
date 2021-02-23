@@ -1,9 +1,10 @@
 import React from "react"
 import styled from "styled-components"
 import Player from "../Player/player"
+import background from "../../images/episode_bg.svg"
 
 const Wrapper = styled.article`
-  background-color: #feb80a88;
+background-image: url(${background});
   height: 100%;
   overflow: hidden;
   max-width: 1200px;
@@ -16,7 +17,7 @@ const Wrapper = styled.article`
   }
 
   a {
-    color: #000;
+    color: ${({ theme }) => theme.link};
   }
 
   ul,
@@ -33,7 +34,7 @@ const Wrapper = styled.article`
   }
 `
 
-const ContentConatiner = styled.div`
+const ContentContainer = styled.div`
   padding: 25px;
   flex: 1;
   overflow-y: auto;
@@ -59,11 +60,19 @@ const EpisodeActionButton = styled.a`
 `
 const Heading = styled.h1`
   margin: 0.5em 0;
-  color: #000000;
   font-size: 2em;
   font-weight: 800;
   display: inline-block;
   width: 100%;
+`
+
+const EpisodeContent = styled.div`
+
+`
+
+const EpisodeDate = styled.span`
+  font-weight: 600;
+  color: ${({ theme }) => theme.textV2}
 `
 
 function getDownloadLink(link) {
@@ -74,10 +83,10 @@ function getDownloadLink(link) {
 const Episode = ({ episode }) => (
   <Wrapper>
     <Player url={episode.enclosure.url} />
-    <ContentConatiner>
-      <span style={{ fontWeight: "800", color: "#00000088" }}>
+    <ContentContainer>
+      <EpisodeDate>
         {episode.isoDate}
-      </span>
+      </EpisodeDate>
       <Heading>{episode.title}</Heading>
       {/* <EpisodeActionButton
         href={getDownloadLink(episode.enclosure.url)}
@@ -88,12 +97,12 @@ const Episode = ({ episode }) => (
           💾
         </span>
       </EpisodeActionButton> */}
-      <div style={{ color: "#000000" }}
+      <EpisodeContent
         dangerouslySetInnerHTML={{
           __html: episode.content,
         }}
       />
-    </ContentConatiner>
+    </ContentContainer>
   </Wrapper>
 )
 
