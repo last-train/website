@@ -5,7 +5,7 @@
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 [![Twitter](https://img.shields.io/twitter/follow/lasttrainpod?style=social)](https://twitter.com/intent/follow?screen_name=lasttrainpod)
 
-## Prerequisits
+## Prerequisites
 
 - node
 - gatsby
@@ -13,7 +13,7 @@
 
 ## Develop
 
-to run your local dev server
+To run your local dev server
 
 ```
 nvm use
@@ -29,10 +29,7 @@ npm install
 gatsby build
 ```
 
-## Firebase
+## Scheduled Actions
 
-Deploy to staging
-
-```
-firebase hosting:channel:deploy staging
-```
+- [Scheduled Rebuild](https://github.com/last-train/website/actions/workflows/scheduled-rebuild.yml)
+    - There is a GitHub Action scheduled for every Friday at 08:30AM UTC. The action rebuilds for firebase so that the newest episode can be pulled / created.
