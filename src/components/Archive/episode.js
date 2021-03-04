@@ -4,7 +4,8 @@ import Player from "../Player/player"
 import background from "../../images/episode_bg.svg"
 
 const Wrapper = styled.article`
-background-image: url(${background});
+  background-image: url(${background});
+  background-repeat: no-repeat;
   height: 100%;
   overflow: hidden;
   max-width: 1200px;

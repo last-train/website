@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { func, string } from 'prop-types';
-import styled from "styled-components"
+import styled from 'styled-components'
+import ThemeContext from '../context/theme-context'
+
 const Button = styled.button`
   background: ${({ theme }) => theme.background};
   border: 2px solid ${({ theme }) => theme.toggleBorder};
@@ -9,6 +11,11 @@ const Button = styled.button`
   cursor: pointer;
   font-size: 0.8rem;
   padding: 0.6rem;
+  transition: all 0.4s ease-in;
+
+  :hover {
+    transform: translateY(-1px);
+    border: 3px solid ${({ theme }) => theme.toggleBorder};
   }
 
   @media (max-width: 768px) {
@@ -18,7 +25,9 @@ const Button = styled.button`
     z-index: 6;
   }
 `;
-const Toggler = ({theme, toggleTheme }) => {
+const Toggler = ({theme, toggleTheme}) => {
+  const themeContext = useContext(ThemeContext);
+  toggleTheme = themeContext.themeToggler
   return (
     <Button onClick={toggleTheme} >
       { theme === 'dark' ? 'Turn Off Dark Mode' : 'Turn On Dark Mode' }

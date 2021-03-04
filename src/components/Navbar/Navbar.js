@@ -6,6 +6,7 @@ import Logo from "./Logo"
 const Navigation = styled.nav`
   height: 10vh;
   min-height: 70px;
+  max-height: 90px;
   display: flex;
   background-color: ${({ theme }) => theme.navBar};
   position: sticky;
@@ -94,20 +95,13 @@ const Navbar = (props) => {
   return (
     <Navigation>
       <Logo />
-      <Toggle
-        navbarOpen={navbarOpen}
-        onClick={() => setNavbarOpen(!navbarOpen)}
-      >
+      <Toggle navbarOpen={navbarOpen} onClick={() => setNavbarOpen(!navbarOpen)}>
         {navbarOpen ? <Hamburger open /> : <Hamburger />}
       </Toggle>
       {navbarOpen ? (
-        <Navbox>
-          <NavbarLinks theme={props.theme} toggleTheme={props.toggleTheme} />
-        </Navbox>
+        <Navbox><NavbarLinks /></Navbox>
       ) : (
-        <Navbox open>
-          <NavbarLinks theme={props.theme} toggleTheme={props.toggleTheme} />
-        </Navbox>
+        <Navbox open><NavbarLinks /></Navbox>
       )}
     </Navigation>
   )

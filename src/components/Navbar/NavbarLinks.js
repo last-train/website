@@ -44,7 +44,7 @@ const NavbarLinks = (props) => {
       <NavItem to="/#podcasts">Podcasts</NavItem>
       <NavItem to="/#hosts">Hosts</NavItem>
       <NavItem to="/archive">Archive</NavItem>
-      <Toggler theme={props.theme} toggleTheme={props.toggleTheme} />
+      <Toggler />
     </>
   )
 }
