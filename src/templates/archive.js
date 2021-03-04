@@ -41,11 +41,11 @@ const Archive = ({ data }) => {
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles/>
-      <Layout theme={theme} toggleTheme={themeToggler}>
+      <Layout toggleTheme={themeToggler}>
         <SEO title={episode.title} />
         <Wrapper>
-          <List theme={theme} />
-          <Episode theme={theme} episode={episode} />
+          <List />
+          <Episode episode={episode} />
         </Wrapper>
       </Layout>
     </ThemeProvider>

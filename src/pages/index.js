@@ -21,11 +21,11 @@ const IndexPage = () => {
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles/>
-      <Layout theme={theme} toggleTheme={themeToggler}>
+      <Layout toggleTheme={themeToggler}>
         <SEO title="Last Train Podcast" />
-        <Landing theme={theme} />
-        <Podcast theme={theme} />
-        <Hosts theme={theme} />
+        <Landing />
+        <Podcast />
+        <Hosts />
       </Layout>
     </ThemeProvider>
   )

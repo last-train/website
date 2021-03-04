@@ -102,11 +102,11 @@ const Navbar = (props) => {
       </Toggle>
       {navbarOpen ? (
         <Navbox>
-          <NavbarLinks theme={props.theme} toggleTheme={props.toggleTheme} />
+          <NavbarLinks toggleTheme={props.toggleTheme} />
         </Navbox>
       ) : (
         <Navbox open>
-          <NavbarLinks theme={props.theme} toggleTheme={props.toggleTheme} />
+          <NavbarLinks toggleTheme={props.toggleTheme} />
         </Navbox>
       )}
     </Navigation>
