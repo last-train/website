@@ -6,6 +6,7 @@ import Logo from "./Logo"
 const Navigation = styled.nav`
   height: 10vh;
   min-height: 70px;
+  max-height: 90px;
   display: flex;
   background-color: ${({ theme }) => theme.navBar};
   position: sticky;

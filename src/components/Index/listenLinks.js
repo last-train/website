@@ -32,9 +32,7 @@ export default function ListenLinks() {
 
     :hover {
       transform: translateY(-5px);
-      transition: transform 0.30s ease-out;
-      -ms-transition: transform 0.30s ease-out;
-      -webkit-transition: transform 0.30s ease-out;
+      transition: all 0.30s ease-in;
     }
 
     @media (max-width: 400px) {

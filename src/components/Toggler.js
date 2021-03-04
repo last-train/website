@@ -11,6 +11,11 @@ const Button = styled.button`
   cursor: pointer;
   font-size: 0.8rem;
   padding: 0.6rem;
+  transition: all 0.4s ease-in;
+
+  :hover {
+    transform: translateY(-1px);
+    border: 3px solid ${({ theme }) => theme.toggleBorder};
   }
 
   @media (max-width: 768px) {
