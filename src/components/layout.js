@@ -6,7 +6,7 @@ import Navbar from "./Navbar/Navbar"
 const Layout = (props) => {
   return (
     <>
-      <Navbar toggleTheme={props.toggleTheme} />
+      <Navbar />
       {props.children}
       <Footer />
     </>

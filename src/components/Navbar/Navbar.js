@@ -94,20 +94,13 @@ const Navbar = (props) => {
   return (
     <Navigation>
       <Logo />
-      <Toggle
-        navbarOpen={navbarOpen}
-        onClick={() => setNavbarOpen(!navbarOpen)}
-      >
+      <Toggle navbarOpen={navbarOpen} onClick={() => setNavbarOpen(!navbarOpen)}>
         {navbarOpen ? <Hamburger open /> : <Hamburger />}
       </Toggle>
       {navbarOpen ? (
-        <Navbox>
-          <NavbarLinks toggleTheme={props.toggleTheme} />
-        </Navbox>
+        <Navbox><NavbarLinks /></Navbox>
       ) : (
-        <Navbox open>
-          <NavbarLinks toggleTheme={props.toggleTheme} />
-        </Navbox>
+        <Navbox open><NavbarLinks /></Navbox>
       )}
     </Navigation>
   )

@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import Layout from "../components/layout"
 import List from "../components/Archive/list"
 import Episode from "../components/Archive/episode"
+import ThemeContext from "../context/theme-context"
 
 import { ThemeProvider } from "styled-components";
 import { useDarkMode } from "../components/useDarkMode";
@@ -41,13 +42,15 @@ const Archive = ({ data }) => {
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles/>
-      <Layout toggleTheme={themeToggler}>
-        <SEO title={episode.title} />
-        <Wrapper>
-          <List />
-          <Episode episode={episode} />
-        </Wrapper>
-      </Layout>
+      <ThemeContext.Provider value={{themeToggler: themeToggler}}>
+        <Layout>
+          <SEO title={episode.title} />
+          <Wrapper>
+            <List />
+            <Episode episode={episode} />
+          </Wrapper>
+        </Layout>
+      </ThemeContext.Provider>
     </ThemeProvider>
   )
 }
