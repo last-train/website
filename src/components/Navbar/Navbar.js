@@ -1,7 +1,8 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import NavbarLinks from "./NavbarLinks"
 import Logo from "./Logo"
+import "./Navbar.css"
 
 const Navigation = styled.nav`
   height: 10vh;
@@ -9,7 +10,8 @@ const Navigation = styled.nav`
   max-height: 90px;
   display: flex;
   background-color: ${({ theme }) => theme.navBar};
-  position: sticky;
+  position: fixed;
+  width: 100%;
   justify-content: space-between;
   text-transform: uppercase;
   border-bottom: 2px solid ${({ theme }) => theme.navFooterBorder};
@@ -89,8 +91,28 @@ const Hamburger = styled.div`
     top: 10px;
   }
 `
+
 const Navbar = (props) => {
-  const [navbarOpen, setNavbarOpen] = useState(false)
+  const [navbarOpen, setNavbarOpen] = useState(false);
+
+  function didScroll() {
+    let headerElement = document.getElementsByTagName('nav')[0];
+    var currentScrollPos = window.pageYOffset;
+    if (headerElement) {
+      if (prevScrollPos < currentScrollPos) {
+        headerElement.classList.add('hidden');
+      } else {
+        headerElement.classList.add('show');
+        headerElement.classList.remove('hidden');
+      }
+      setPrevScrollPos(currentScrollPos)
+    }
+  }
+
+  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
+  let headerElement = document.getElementsByTagName('nav')[0];
+
+  window.addEventListener("scroll", didScroll);
 
   return (
     <Navigation>
