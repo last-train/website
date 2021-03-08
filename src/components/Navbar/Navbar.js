@@ -97,21 +97,22 @@ const Navbar = (props) => {
 
   function didScroll() {
     let headerElement = document.getElementsByTagName('nav')[0];
-    var currentScrollPos = window.pageYOffset;
-    if (headerElement) {
-      if (prevScrollPos < currentScrollPos) {
-        headerElement.classList.add('hidden');
-      } else {
-        headerElement.classList.add('show');
-        headerElement.classList.remove('hidden');
+    if (typeof window !== 'undefined') { // to avoid Gatsby error
+      var currentScrollPos = window.pageYOffset;
+      if (headerElement) {
+        if (prevScrollPos < currentScrollPos) {
+          headerElement.classList.add('hidden');
+        } else {
+          headerElement.classList.add('show');
+          headerElement.classList.remove('hidden');
+        }
+        setPrevScrollPos(currentScrollPos)
       }
-      setPrevScrollPos(currentScrollPos)
     }
   }
 
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
-  let headerElement = document.getElementsByTagName('nav')[0];
-  if (typeof window !== 'undefined') {
+  if (typeof window !== 'undefined') { // to avoid Gatsby error
     window.addEventListener("scroll", didScroll);
   }
 
