@@ -111,8 +111,9 @@ const Navbar = (props) => {
 
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
   let headerElement = document.getElementsByTagName('nav')[0];
-
-  window.addEventListener("scroll", didScroll);
+  if (typeof window !== 'undefined') {
+    window.addEventListener("scroll", didScroll);
+  }
 
   return (
     <Navigation>
