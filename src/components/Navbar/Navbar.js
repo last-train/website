@@ -111,8 +111,8 @@ const Navbar = (props) => {
     }
   }
 
-  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
   if (typeof window !== 'undefined') { // to avoid Gatsby error
+    const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
     window.addEventListener("scroll", didScroll);
   }
 
