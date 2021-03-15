@@ -94,27 +94,52 @@ const Hamburger = styled.div`
 
 const Navbar = (props) => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+  var hasTouchScreen = false;
+  if ("maxTouchPoints" in navigator) {
+      hasTouchScreen = navigator.maxTouchPoints > 0;
+  } else if ("msMaxTouchPoints" in navigator) {
+      hasTouchScreen = navigator.msMaxTouchPoints > 0;
+  } else {
+      var mQ = window.matchMedia && matchMedia("(pointer:coarse)");
+      if (mQ && mQ.media === "(pointer:coarse)") {
+          hasTouchScreen = !!mQ.matches;
+      } else if ('orientation' in window) {
+          hasTouchScreen = true; // deprecated, but good fallback
+      } else {
+          // Only as a last resort, fall back to user agent sniffing
+          var UA = navigator.userAgent;
+          hasTouchScreen = (
+              /\b(BlackBerry|webOS|iPhone|IEMobile)\b/i.test(UA) ||
+              /\b(Android|Windows Phone|iPad|iPod)\b/i.test(UA)
+          );
+      }
+  }
 
   function didScroll() {
     let headerElement = document.getElementsByTagName('nav')[0];
-    if (typeof window !== 'undefined') { // to avoid Gatsby error
+    if (typeof window !== 'undefined' && headerElement && !hasTouchScreen) { // to avoid Gatsby error
       var currentScrollPos = window.pageYOffset;
-      if (headerElement) {
-        if (prevScrollPos < currentScrollPos) {
-          headerElement.classList.add('hidden');
-        } else {
-          headerElement.classList.add('show');
-          headerElement.classList.remove('hidden');
-        }
-        setPrevScrollPos(currentScrollPos)
+
+      if (prevScrollPos < currentScrollPos && currentScrollPos != 0) {
+        headerElement.classList.add('hidden');
+      } else {
+        headerElement.classList.add('show');
+        headerElement.classList.remove('hidden');
       }
+      setPrevScrollPos(currentScrollPos)
     }
   }
+  
+  // add new listener and remove old listener every time prevScrollPos changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') { // to avoid Gatsby error
+      window.addEventListener("scroll", didScroll);
+    }
+    return () => window.removeEventListener('scroll', didScroll);
+  }, [prevScrollPos]);
 
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
-  if (typeof window !== 'undefined') { // to avoid Gatsby error
-    window.addEventListener("scroll", didScroll);
-  }
 
   return (
     <Navigation>
