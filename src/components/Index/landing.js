@@ -31,7 +31,7 @@ const Title = styled.h1`
     font-size: 4em;
   }
   @media (max-width: 400px) {
-    font-size: 3em;
+    font-size: 2.7em;
   }
 `
 
@@ -66,7 +66,7 @@ const Container = styled.header`
   }
 
   @media (max-width: 768px) {
-    height: 88vh;
+    height: 75vh;
     padding: 0;
   }
 `
