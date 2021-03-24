@@ -67,6 +67,7 @@ const Container = styled.header`
 
   @media (max-width: 768px) {
     height: 92vh;
+    padding: 0;
   }
 `
 
