@@ -18,13 +18,14 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 25px;
+  padding: 100px 25px 25px 25px;
 
   @media screen and (max-width: 1200px) {
     height: unset;
     min-height: 100vh;
     flex-direction: column;
     justify-content: flex-start;
+    padding: 75px 25px 25px 25px;
   }
 
   @media screen and (max-width: 800px) {

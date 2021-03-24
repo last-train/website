@@ -5,9 +5,7 @@ import Logo from "./Logo"
 import "./Navbar.css"
 
 const Navigation = styled.nav`
-  height: 10vh;
-  min-height: 70px;
-  max-height: 90px;
+  height: 80px;
   display: flex;
   background-color: ${({ theme }) => theme.navBar};
   position: fixed;
@@ -96,6 +94,7 @@ const Navbar = (props) => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
 
+  // Line 100 - 122 determines if the device is touch screen
   var hasTouchScreen = false;
   if (typeof window !== 'undefined') {
     let navigator = window.navigator;
@@ -125,7 +124,7 @@ const Navbar = (props) => {
     if (typeof window !== 'undefined' && headerElement && !hasTouchScreen) { // to avoid Gatsby error
       var currentScrollPos = window.pageYOffset;
 
-      if (prevScrollPos < currentScrollPos && currentScrollPos != 0) {
+      if (prevScrollPos < currentScrollPos && currentScrollPos > 100) {
         headerElement.classList.add('hidden');
       } else {
         headerElement.classList.add('show');
@@ -134,7 +133,7 @@ const Navbar = (props) => {
       setPrevScrollPos(currentScrollPos)
     }
   }
-  
+
   // add new listener and remove old listener every time prevScrollPos changes
   useEffect(() => {
     if (typeof window !== 'undefined') { // to avoid Gatsby error

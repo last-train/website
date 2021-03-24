@@ -36,7 +36,8 @@ const Title = styled.h1`
 `
 
 const Container = styled.header`
-  height: 90vh;
+  padding-top: 80px;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
