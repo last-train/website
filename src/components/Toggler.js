@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import { func, string } from 'prop-types';
 import styled from 'styled-components'
 import ThemeContext from '../context/theme-context'
 
@@ -25,17 +24,13 @@ const Button = styled.button`
     z-index: 6;
   }
 `;
-const Toggler = ({theme, toggleTheme}) => {
+const Toggler = () => {
   const themeContext = useContext(ThemeContext);
-  toggleTheme = themeContext.themeToggler
   return (
-    <Button onClick={toggleTheme} >
-      { theme === 'dark' ? 'Turn Off Dark Mode' : 'Turn On Dark Mode' }
+    <Button onClick={themeContext.themeToggler} >
+      { themeContext.theme === 'dark' ? 'Turn Off Dark Mode' : 'Turn On Dark Mode' }
     </Button>
   );
 };
-Toggler.propTypes = {
-  theme: string.isRequired,
-  toggleTheme: func.isRequired,
-}
+
 export default Toggler;

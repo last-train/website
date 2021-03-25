@@ -1,15 +1,15 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import NavbarLinks from "./NavbarLinks"
 import Logo from "./Logo"
+import "./Navbar.css"
 
 const Navigation = styled.nav`
-  height: 10vh;
-  min-height: 70px;
-  max-height: 90px;
+  height: 80px;
   display: flex;
   background-color: ${({ theme }) => theme.navBar};
-  position: sticky;
+  position: fixed;
+  width: 100%;
   justify-content: space-between;
   text-transform: uppercase;
   border-bottom: 2px solid ${({ theme }) => theme.navFooterBorder};
@@ -89,8 +89,59 @@ const Hamburger = styled.div`
     top: 10px;
   }
 `
+
 const Navbar = (props) => {
-  const [navbarOpen, setNavbarOpen] = useState(false)
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+  // Line 100 - 122 determines if the device is touch screen
+  var hasTouchScreen = false;
+  if (typeof window !== 'undefined') {
+    let navigator = window.navigator;
+    if ("maxTouchPoints" in navigator) {
+      hasTouchScreen = navigator.maxTouchPoints > 0;
+    } else if ("msMaxTouchPoints" in navigator) {
+        hasTouchScreen = navigator.msMaxTouchPoints > 0;
+    } else {
+        var mQ = window.matchMedia && matchMedia("(pointer:coarse)");
+        if (mQ && mQ.media === "(pointer:coarse)") {
+            hasTouchScreen = !!mQ.matches;
+        } else if ('orientation' in window) {
+            hasTouchScreen = true; // deprecated, but good fallback
+        } else {
+            // Only as a last resort, fall back to user agent sniffing
+            var UA = navigator.userAgent;
+            hasTouchScreen = (
+                /\b(BlackBerry|webOS|iPhone|IEMobile)\b/i.test(UA) ||
+                /\b(Android|Windows Phone|iPad|iPod)\b/i.test(UA)
+            );
+        }
+    }
+  }
+
+  function didScroll() {
+    let headerElement = document.getElementsByTagName('nav')[0];
+    if (typeof window !== 'undefined' && headerElement && !hasTouchScreen) { // to avoid Gatsby error
+      var currentScrollPos = window.pageYOffset;
+
+      if (prevScrollPos < currentScrollPos && currentScrollPos > 100) {
+        headerElement.classList.add('hidden');
+      } else {
+        headerElement.classList.add('show');
+        headerElement.classList.remove('hidden');
+      }
+      setPrevScrollPos(currentScrollPos)
+    }
+  }
+
+  // add new listener and remove old listener every time prevScrollPos changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') { // to avoid Gatsby error
+      window.addEventListener("scroll", didScroll);
+    }
+    return () => window.removeEventListener('scroll', didScroll);
+  }, [prevScrollPos]);
+
 
   return (
     <Navigation>

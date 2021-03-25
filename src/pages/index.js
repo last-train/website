@@ -22,7 +22,7 @@ const IndexPage = () => {
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles/>
-      <ThemeContext.Provider value={{themeToggler: themeToggler}}>
+      <ThemeContext.Provider value={{themeToggler: themeToggler, theme: theme}}>
         <Layout>
           <SEO title='Last Train Podcast' />
           <Landing />

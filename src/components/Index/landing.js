@@ -31,12 +31,14 @@ const Title = styled.h1`
     font-size: 4em;
   }
   @media (max-width: 400px) {
-    font-size: 3em;
+    font-size: 2.7em;
+    padding: 0 20px;
   }
 `
 
 const Container = styled.header`
-  height: 90vh;
+  padding-top: 80px;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,7 +67,8 @@ const Container = styled.header`
   }
 
   @media (max-width: 768px) {
-    height: 92vh;
+    height: 75vh;
+    padding: 0;
   }
 `
 
