@@ -43,6 +43,12 @@ const Navigation = styled.nav`
       transform: translateY(calc(70px * -1));
       box-shadow: 0 10px 30px -10px ${({ theme }) => theme.navFooterBorder};
     `};
+
+  ${(props) =>
+    props.navbarOpen &&
+    css`
+      transform: unset;
+    `};
 `
 
 const Toggle = styled.div`
@@ -133,7 +139,11 @@ const Navbar = (props) => {
   }, [])
 
   return (
-    <Navigation scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
+    <Navigation
+      navbarOpen={navbarOpen}
+      scrollDirection={scrollDirection}
+      scrolledToTop={scrolledToTop}
+    >
       <Logo />
       <Toggle
         navbarOpen={navbarOpen}
