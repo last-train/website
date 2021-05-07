@@ -26,12 +26,6 @@ const Navigation = styled.nav`
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 
   ${(props) =>
-    props.navbarOpen &&
-    css`
-      background-color: ${({ theme }) => theme.navBar};
-    `};
-
-  ${(props) =>
     props.scrollDirection === "up" &&
     !props.scrolledToTop &&
     css`
@@ -56,6 +50,7 @@ const Toggle = styled.div`
   height: 100%;
   cursor: pointer;
   padding: 0;
+  z-index: 9;
 
   @media (max-width: 768px) {
     display: flex;
@@ -76,7 +71,6 @@ const Navbox = styled.div`
     padding-top: 10vh;
     background-color: ${({ theme }) => theme.navBar};
     transition: all 0.3s ease-in;
-    top: 70px;
     left: ${(props) => (props.open ? "-100%" : "0")};
   }
 `
@@ -139,11 +133,7 @@ const Navbar = (props) => {
   }, [])
 
   return (
-    <Navigation
-      navbarOpen={navbarOpen}
-      scrollDirection={scrollDirection}
-      scrolledToTop={scrolledToTop}
-    >
+    <Navigation scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
       <Logo />
       <Toggle
         navbarOpen={navbarOpen}
