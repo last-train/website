@@ -67,7 +67,7 @@ const Container = styled.header`
   }
 
   @media (max-width: 768px) {
-    min-height: 85vh;
+    min-height: calc(95vh - 70px);
     padding: 0;
   }
 `

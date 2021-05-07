@@ -7,9 +7,9 @@ import useScrollDirection from "../../hooks/useScrollDirection"
 import { useLocation } from "@reach/router"
 
 const Navigation = styled.nav`
-  height: 80px;
+  height: 70px;
   display: flex;
-  background-color: none;
+  background-color: transparent;
   position: fixed;
   width: 100%;
   justify-content: space-between;
@@ -24,6 +24,12 @@ const Navigation = styled.nav`
   pointer-events: auto !important;
   user-select: auto !important;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  ${(props) =>
+    props.navbarOpen &&
+    css`
+      background-color: ${({ theme }) => theme.navBar};
+    `};
 
   ${(props) =>
     props.scrollDirection === "up" &&
@@ -70,13 +76,13 @@ const Navbox = styled.div`
     padding-top: 10vh;
     background-color: ${({ theme }) => theme.navBar};
     transition: all 0.3s ease-in;
-    top: 8vh;
+    top: 70px;
     left: ${(props) => (props.open ? "-100%" : "0")};
   }
 `
 
 const Hamburger = styled.div`
-  background-color: ${({ theme }) => theme.link};
+  background-color: ${({ theme }) => theme.text};
   width: 30px;
   height: 3px;
   transition: all 0.3s linear;
@@ -88,7 +94,7 @@ const Hamburger = styled.div`
   ::after {
     width: 30px;
     height: 3px;
-    background-color: ${({ theme }) => theme.link};
+    background-color: ${({ theme }) => theme.text};
     content: "";
     position: absolute;
     transition: all 0.3s linear;
@@ -133,7 +139,11 @@ const Navbar = (props) => {
   }, [])
 
   return (
-    <Navigation scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
+    <Navigation
+      navbarOpen={navbarOpen}
+      scrollDirection={scrollDirection}
+      scrolledToTop={scrolledToTop}
+    >
       <Logo />
       <Toggle
         navbarOpen={navbarOpen}
