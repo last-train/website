@@ -38,7 +38,7 @@ const Title = styled.h1`
 
 const Container = styled.header`
   padding-top: 80px;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,7 +67,7 @@ const Container = styled.header`
   }
 
   @media (max-width: 768px) {
-    height: 75vh;
+    min-height: 85vh;
     padding: 0;
   }
 `

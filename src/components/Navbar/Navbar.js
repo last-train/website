@@ -1,31 +1,48 @@
 import React, { useState, useEffect } from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import NavbarLinks from "./NavbarLinks"
 import Logo from "./Logo"
 import "./Navbar.css"
+import useScrollDirection from "../../hooks/useScrollDirection"
+import { useLocation } from "@reach/router"
 
 const Navigation = styled.nav`
   height: 80px;
   display: flex;
-  background-color: ${({ theme }) => theme.navBar};
+  background-color: none;
   position: fixed;
   width: 100%;
   justify-content: space-between;
   text-transform: uppercase;
-  border-bottom: 2px solid ${({ theme }) => theme.navFooterBorder};
   margin: 0 auto;
   padding: 0 5vw;
   z-index: 2;
   align-self: center;
 
-  @media (max-width: 768px) {
-    position: sticky;
-    height: 8vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    left: 0;
-  }
+  top: 0;
+  filter: none !important;
+  pointer-events: auto !important;
+  user-select: auto !important;
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  ${(props) =>
+    props.scrollDirection === "up" &&
+    !props.scrolledToTop &&
+    css`
+      height: 70px;
+      transform: translateY(0px);
+      background-color: ${({ theme }) => theme.navBar};
+      box-shadow: 0 10px 30px -10px ${({ theme }) => theme.navFooterBorder};
+    `};
+
+  ${(props) =>
+    props.scrollDirection === "down" &&
+    !props.scrolledToTop &&
+    css`
+      height: 70px;
+      transform: translateY(calc(70px * -1));
+      box-shadow: 0 10px 30px -10px ${({ theme }) => theme.navFooterBorder};
+    `};
 `
 
 const Toggle = styled.div`
@@ -54,7 +71,7 @@ const Navbox = styled.div`
     background-color: ${({ theme }) => theme.navBar};
     transition: all 0.3s ease-in;
     top: 8vh;
-    left: ${props => (props.open ? "-100%" : "0")};
+    left: ${(props) => (props.open ? "-100%" : "0")};
   }
 `
 
@@ -62,10 +79,10 @@ const Hamburger = styled.div`
   background-color: ${({ theme }) => theme.link};
   width: 30px;
   height: 3px;
-  transition: all .3s linear;
+  transition: all 0.3s linear;
   align-self: center;
   position: relative;
-  transform: ${props => (props.open ? "rotate(-45deg)" : "inherit")};
+  transform: ${(props) => (props.open ? "rotate(-45deg)" : "inherit")};
 
   ::before,
   ::after {
@@ -78,81 +95,60 @@ const Hamburger = styled.div`
   }
 
   ::before {
-    transform: ${props =>
+    transform: ${(props) =>
       props.open ? "rotate(-90deg) translate(-10px, 0px)" : "rotate(0deg)"};
     top: -10px;
   }
 
   ::after {
-    opacity: ${props => (props.open ? "0" : "1")};
-    transform: ${props => (props.open ? "rotate(90deg) " : "rotate(0deg)")};
+    opacity: ${(props) => (props.open ? "0" : "1")};
+    transform: ${(props) => (props.open ? "rotate(90deg) " : "rotate(0deg)")};
     top: 10px;
   }
 `
 
 const Navbar = (props) => {
-  const [navbarOpen, setNavbarOpen] = useState(false);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const location = useLocation()
+  const [navbarOpen, setNavbarOpen] = useState(false)
+  const isHome = location.pathname === "/"
+  const [isMounted, setIsMounted] = useState(!isHome)
+  const scrollDirection = useScrollDirection("down")
+  const [scrolledToTop, setScrolledToTop] = useState(true)
 
-  // Line 100 - 122 determines if the device is touch screen
-  var hasTouchScreen = false;
-  if (typeof window !== 'undefined') {
-    let navigator = window.navigator;
-    if ("maxTouchPoints" in navigator) {
-      hasTouchScreen = navigator.maxTouchPoints > 0;
-    } else if ("msMaxTouchPoints" in navigator) {
-        hasTouchScreen = navigator.msMaxTouchPoints > 0;
-    } else {
-        var mQ = window.matchMedia && matchMedia("(pointer:coarse)");
-        if (mQ && mQ.media === "(pointer:coarse)") {
-            hasTouchScreen = !!mQ.matches;
-        } else if ('orientation' in window) {
-            hasTouchScreen = true; // deprecated, but good fallback
-        } else {
-            // Only as a last resort, fall back to user agent sniffing
-            var UA = navigator.userAgent;
-            hasTouchScreen = (
-                /\b(BlackBerry|webOS|iPhone|IEMobile)\b/i.test(UA) ||
-                /\b(Android|Windows Phone|iPad|iPod)\b/i.test(UA)
-            );
-        }
-    }
+  const handleScroll = () => {
+    setScrolledToTop(window.pageYOffset < 50)
   }
 
-  function didScroll() {
-    let headerElement = document.getElementsByTagName('nav')[0];
-    if (typeof window !== 'undefined' && headerElement && !hasTouchScreen) { // to avoid Gatsby error
-      var currentScrollPos = window.pageYOffset;
-
-      if (prevScrollPos < currentScrollPos && currentScrollPos > 100) {
-        headerElement.classList.add('hidden');
-      } else {
-        headerElement.classList.add('show');
-        headerElement.classList.remove('hidden');
-      }
-      setPrevScrollPos(currentScrollPos)
-    }
-  }
-
-  // add new listener and remove old listener every time prevScrollPos changes
   useEffect(() => {
-    if (typeof window !== 'undefined') { // to avoid Gatsby error
-      window.addEventListener("scroll", didScroll);
-    }
-    return () => window.removeEventListener('scroll', didScroll);
-  }, [prevScrollPos]);
+    const timeout = setTimeout(() => {
+      setIsMounted(true)
+    }, 100)
 
+    window.addEventListener("scroll", handleScroll)
+
+    return () => {
+      clearTimeout(timeout)
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
 
   return (
-    <Navigation>
+    <Navigation scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
       <Logo />
-      <Toggle navbarOpen={navbarOpen} onClick={() => setNavbarOpen(!navbarOpen)}>
+      <Toggle
+        navbarOpen={navbarOpen}
+        onClick={() => setNavbarOpen(!navbarOpen)}
+      >
         {navbarOpen ? <Hamburger open /> : <Hamburger />}
       </Toggle>
       {navbarOpen ? (
-        <Navbox><NavbarLinks /></Navbox>
+        <Navbox>
+          <NavbarLinks />
+        </Navbox>
       ) : (
-        <Navbox open><NavbarLinks /></Navbox>
+        <Navbox open>
+          <NavbarLinks />
+        </Navbox>
       )}
     </Navigation>
   )
