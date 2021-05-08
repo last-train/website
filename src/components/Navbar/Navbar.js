@@ -118,6 +118,10 @@ const Navbar = (props) => {
   const scrollDirection = useScrollDirection("down")
   const [scrolledToTop, setScrolledToTop] = useState(true)
 
+  const navbarLinkHandler = () => {
+    setNavbarOpen(false)
+  }
+
   const handleScroll = () => {
     setScrolledToTop(window.pageYOffset < 50)
   }
@@ -150,11 +154,11 @@ const Navbar = (props) => {
       </Toggle>
       {navbarOpen ? (
         <Navbox>
-          <NavbarLinks />
+          <NavbarLinks navbarLinkHandler={navbarLinkHandler} />
         </Navbox>
       ) : (
         <Navbox open>
-          <NavbarLinks />
+          <NavbarLinks navbarLinkHandler={navbarLinkHandler} />
         </Navbox>
       )}
     </Navigation>
