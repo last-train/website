@@ -69,14 +69,17 @@ const Heading = styled.h1`
 `
 
 const EpisodeImageDiv = styled.div`
-  width: 100%;
+  width: 40%;
   margin-right: 25px;
 `
 
 const EpisodeImage = styled.img`
-  width: 100%;
-  height: auto;
   box-shadow: 0 0 10px #000;
+  width: 100%;
+`
+
+const EpisodeContentDiv = styled.div`
+  flex: 1;
 `
 
 const EpisodeContent = styled.div``
@@ -98,7 +101,7 @@ const Episode = ({ episode }) => (
       <EpisodeImageDiv>
         <EpisodeImage src={episode.itunes.image} alt={episode.title} />
       </EpisodeImageDiv>
-      <div>
+      <EpisodeContentDiv>
         <EpisodeDate>{episode.isoDate}</EpisodeDate>
         <Heading>{episode.title}</Heading>
         {/* <EpisodeActionButton
@@ -115,7 +118,7 @@ const Episode = ({ episode }) => (
             __html: episode.content,
           }}
         />
-      </div>
+      </EpisodeContentDiv>
     </ContentContainer>
   </Wrapper>
 )
