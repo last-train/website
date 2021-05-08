@@ -6,7 +6,7 @@ import Navbar from "./Navbar/Navbar"
 const Layout = (props) => {
   return (
     <>
-      <Navbar />
+      <Navbar isHome={props.isHome} />
       {props.children}
       <Footer />
     </>

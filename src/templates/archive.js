@@ -8,10 +8,10 @@ import List from "../components/Archive/list"
 import Episode from "../components/Archive/episode"
 import ThemeContext from "../context/theme-context"
 
-import { ThemeProvider } from "styled-components";
-import { useDarkMode } from "../components/useDarkMode";
-import { GlobalStyles } from "../components/globalStyles";
-import { lightTheme, darkTheme } from "../components/Themes";
+import { ThemeProvider } from "styled-components"
+import { useDarkMode } from "../components/useDarkMode"
+import { GlobalStyles } from "../components/globalStyles"
+import { lightTheme, darkTheme } from "../components/Themes"
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -29,21 +29,21 @@ const Wrapper = styled.div`
   }
 
   @media screen and (max-width: 800px) {
-    padding: 0;
+    padding: 45px 0px 0px 0px;
   }
 `
 
 const Archive = ({ data }) => {
   const episode = data.anchorEpisode
-  const [theme, themeToggler, mountedComponent] = useDarkMode();
-  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+  const [theme, themeToggler, mountedComponent] = useDarkMode()
+  const themeMode = theme === "light" ? lightTheme : darkTheme
 
-  if(!mountedComponent) return <div/>
+  if (!mountedComponent) return <div />
 
   return (
     <ThemeProvider theme={themeMode}>
-      <GlobalStyles/>
-      <ThemeContext.Provider value={{themeToggler: themeToggler}}>
+      <GlobalStyles />
+      <ThemeContext.Provider value={{ themeToggler: themeToggler }}>
         <Layout>
           <SEO title={episode.title} />
           <Wrapper>

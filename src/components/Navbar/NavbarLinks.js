@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import Toggler from "../../components/Toggler";
+import Toggler from "../../components/Toggler"
 
 const NavItem = styled(Link)`
   text-decoration: none;
@@ -41,9 +41,15 @@ const NavItem = styled(Link)`
 const NavbarLinks = (props) => {
   return (
     <>
-      <NavItem to="/#podcasts">Podcasts</NavItem>
-      <NavItem to="/#hosts">Hosts</NavItem>
-      <NavItem to="/archive">Archive</NavItem>
+      <NavItem to="/#podcasts" onClick={props.navbarLinkHandler}>
+        Podcasts
+      </NavItem>
+      <NavItem to="/#hosts" onClick={props.navbarLinkHandler}>
+        Hosts
+      </NavItem>
+      <NavItem to="/archive" onClick={props.navbarLinkHandler}>
+        Archive
+      </NavItem>
       <Toggler />
     </>
   )

@@ -1,4 +1,4 @@
-import { createGlobalStyle} from "styled-components"
+import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -20,5 +20,9 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-transition: background-color 0.30s linear;
 
     font-family: "Avenir", Arial, Helvetica, sans-serif;
+
+    &.freeze {
+      overflow: hidden;
+    }
   }
 `
