@@ -66,6 +66,9 @@ export const query = graphql`
       enclosure {
         url
       }
+      itunes {
+        image
+      }
     }
   }
 `

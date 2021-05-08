@@ -39,6 +39,7 @@ const ContentContainer = styled.div`
   padding: 25px;
   flex: 1;
   overflow-y: auto;
+  display: flex;
 `
 
 const EpisodeActionButton = styled.a`
@@ -67,13 +68,25 @@ const Heading = styled.h1`
   width: 100%;
 `
 
-const EpisodeContent = styled.div`
-
+const EpisodeImageDiv = styled.div`
+  width: 40%;
+  margin-right: 25px;
 `
+
+const EpisodeImage = styled.img`
+  box-shadow: 0 0 10px #000;
+  width: 100%;
+`
+
+const EpisodeContentDiv = styled.div`
+  flex: 1;
+`
+
+const EpisodeContent = styled.div``
 
 const EpisodeDate = styled.span`
   font-weight: 600;
-  color: ${({ theme }) => theme.textV2}
+  color: ${({ theme }) => theme.textV2};
 `
 
 function getDownloadLink(link) {
@@ -85,11 +98,13 @@ const Episode = ({ episode }) => (
   <Wrapper>
     <Player url={episode.enclosure.url} />
     <ContentContainer>
-      <EpisodeDate>
-        {episode.isoDate}
-      </EpisodeDate>
-      <Heading>{episode.title}</Heading>
-      {/* <EpisodeActionButton
+      <EpisodeImageDiv>
+        <EpisodeImage src={episode.itunes.image} alt={episode.title} />
+      </EpisodeImageDiv>
+      <EpisodeContentDiv>
+        <EpisodeDate>{episode.isoDate}</EpisodeDate>
+        <Heading>{episode.title}</Heading>
+        {/* <EpisodeActionButton
         href={getDownloadLink(episode.enclosure.url)}
         download="download"
       >
@@ -98,11 +113,12 @@ const Episode = ({ episode }) => (
           💾
         </span>
       </EpisodeActionButton> */}
-      <EpisodeContent
-        dangerouslySetInnerHTML={{
-          __html: episode.content,
-        }}
-      />
+        <EpisodeContent
+          dangerouslySetInnerHTML={{
+            __html: episode.content,
+          }}
+        />
+      </EpisodeContentDiv>
     </ContentContainer>
   </Wrapper>
 )
