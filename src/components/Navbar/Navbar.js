@@ -4,7 +4,6 @@ import NavbarLinks from "./NavbarLinks"
 import Logo from "./Logo"
 import "./Navbar.css"
 import useScrollDirection from "../../hooks/useScrollDirection"
-import { useLocation } from "@reach/router"
 
 const Navigation = styled.nav`
   height: 70px;
@@ -114,10 +113,8 @@ const Hamburger = styled.div`
 `
 
 const Navbar = (props) => {
-  const location = useLocation()
   const [navbarOpen, setNavbarOpen] = useState(false)
-  const isHome = location.pathname === "/"
-  const [isMounted, setIsMounted] = useState(!isHome)
+  const [isMounted, setIsMounted] = useState(!props.isHome)
   const scrollDirection = useScrollDirection("down")
   const [scrolledToTop, setScrolledToTop] = useState(true)
 
