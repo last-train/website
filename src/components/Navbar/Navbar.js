@@ -3,6 +3,7 @@ import styled, { css } from "styled-components"
 import NavbarLinks from "./NavbarLinks"
 import Logo from "./Logo"
 import "./Navbar.css"
+import Helmet from "react-helmet"
 import useScrollDirection from "../../hooks/useScrollDirection"
 
 const Navigation = styled.nav`
@@ -145,6 +146,9 @@ const Navbar = (props) => {
       scrollDirection={scrollDirection}
       scrolledToTop={scrolledToTop}
     >
+      <Helmet>
+        <body className={navbarOpen ? "freeze" : ""} />
+      </Helmet>
       <Logo />
       <Toggle
         navbarOpen={navbarOpen}
