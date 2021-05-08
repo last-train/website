@@ -29,7 +29,7 @@ const Wrapper = styled.div`
   }
 
   @media screen and (max-width: 800px) {
-    padding: 75px 0px 0px 0px;
+    padding: 45px 0px 0px 0px;
   }
 `
 
